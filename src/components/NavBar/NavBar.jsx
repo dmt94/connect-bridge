@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css';
 
 export default function NavBar({ user, setUser }) {
+  const navigate = useNavigate();
   function handleLogOut() {
     userService.logOut();
     setUser(null);
+    navigate('/');
   }
   return (
     <div className='navbar'>

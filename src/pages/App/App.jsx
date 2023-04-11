@@ -9,10 +9,10 @@ import NavBar from '../../components/NavBar/NavBar';
 export default function App() {
   const [user, setUser] = useState(getUser());
   return (
-    <main className="App">
-      <NavBar user={user} setUser={setUser} />
+    <main className="App">      
       { user ?
         <Routes>
+          <NavBar user={user} setUser={setUser} />
           <Route path="/" element={<Dashboard user={user} setUser={setUser} />} />
         </Routes>
         :
