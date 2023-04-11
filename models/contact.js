@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const applicationSchema = new Schema({
+const contact = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -53,4 +53,4 @@ const applicationSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Application', applicationSchema);
+module.exports = mongoose.model('Contact', contact);
