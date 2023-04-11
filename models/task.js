@@ -6,49 +6,28 @@ const task = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  applicationUrl: { 
-    type: String, 
-    required: true 
+  name: {
+    type: 'String',
+    required: true,
+    maxLength: 200
   },
-  role: {
-    type: String,
-    required: true
-  },
-  company: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
-  salaryExpectation: {
-    type: Number
+  deadline: {
+    type: Date,
+    default: function() {
+      return new Date();
+    }
   },
   status: {
     type: String,
     enum: [
-      'Waiting',
-      'Received Offer',
-      'Rejected',
-      'Interviewing'
-    ],
-    default: 'Waiting'
+      'In-progress',
+      'Complete'
+    ]
   },
-  priority: {
-    type: Boolean,
-    default: false
-  },
-  contact: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Contact'
-    }
-  ],
-  task: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Task'
-    }
-  ]
+  description: {
+    type: String,
+    maxLength: 500
+  }
 }, {
   timestamps: true
 });
