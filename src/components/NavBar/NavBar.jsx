@@ -1,13 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './NavBar.css';
 
 export default function NavBar({ user, setUser }) {
-  const navigate = useNavigate();
   function handleLogOut() {
     userService.logOut();
     setUser(null);
-    navigate('/');
   }
   return (
     <div className='navbar'>
@@ -15,9 +13,9 @@ export default function NavBar({ user, setUser }) {
         <div>
           <Link to="/" className="nav-link">Dashboard</Link>
           &nbsp; | &nbsp; 
-          <Link to="" className="nav-link">Application</Link>
+          <Link to="/applications" className="nav-link">Application</Link>
           &nbsp; | &nbsp; 
-          <Link to="" className="nav-link">Contacts</Link>
+          <Link to="/contacts" className="nav-link">Contacts</Link>
           &nbsp; | &nbsp; 
           <Link to="" onClick={ handleLogOut } className="nav-link">Log out</Link>
         </div>

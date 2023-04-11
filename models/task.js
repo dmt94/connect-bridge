@@ -26,7 +26,6 @@ const task = new Schema({
   },
   description: {
     type: String,
-    maxLength: 500
   }
 }, {
   timestamps: true

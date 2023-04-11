@@ -22,6 +22,12 @@ const contact = new Schema({
   },
   email: {
     type: String,
+    validate: {
+      validator: function(v) {
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+      },
+      message: "Enter a valid email for this contact"
+    }
   },
   phoneNumber: {
     type: String,
@@ -53,10 +59,10 @@ const contact = new Schema({
     default: false
   },
   contact: [
-    {
+   [ {
       type: Schema.Types.ObjectId,
       ref: 'Contact'
-    }
+    }, ]
   ],
   task: [
     {

@@ -25,10 +25,12 @@ const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/applications', require('./routes/api/applications'));
+app.use('/api/contacts', require('./routes/api/contacts'));
 
 // Protect all routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn');
-// app.use('/api/applications', ensureLoggedIn, require('./routes/api/applications'));
+app.use('/api/applications', ensureLoggedIn, require('./routes/api/applications'));
 
 
 // The following "catch all" route (note the *) is necessary
