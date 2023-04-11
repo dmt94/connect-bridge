@@ -6,7 +6,7 @@ const contact = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  applicationUrl: { 
+  name: { 
     type: String, 
     required: true 
   },
@@ -20,20 +20,35 @@ const contact = new Schema({
   description: {
     type: String,
   },
-  salaryExpectation: {
-    type: Number
+  email: {
+    type: String,
   },
-  status: {
+  phoneNumber: {
+    type: String,
+    match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
+  },
+  linkedIn: {
+    type: String,
+  },
+  url: {
+    type: String,
+  },
+  waitingOn: {
+    type: Boolean,
+    default: false
+  },
+  relationship: {
     type: String,
     enum: [
-      'Waiting',
-      'Received Offer',
-      'Rejected',
-      'Interviewing'
+      'Professional',
+      'Colleague',
+      'Friend',
+      'Close Friend',
+      'Family',
     ],
-    default: 'Waiting'
+    default: "Professional",
   },
-  priority: {
+  starContact: {
     type: Boolean,
     default: false
   },
