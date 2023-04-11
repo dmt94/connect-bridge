@@ -5,6 +5,9 @@ nav {
   justify-content: space-between;
 }
 
+.navbar hr {
+  border: 1px solid rgb(253, 250, 250);
+}
 
 a.nav-link {
   font-weight: 600;
@@ -12,12 +15,13 @@ a.nav-link {
   padding: 1vmin;
   color: white;
   border-radius: 8px;
+  text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 a.nav-link:hover {
   text-decoration: none;
-  background-color: rgba(122, 123, 137, 0.202);
+  background-color: rgba(122, 123, 137, 0.463);
 }
 
 nav span {
