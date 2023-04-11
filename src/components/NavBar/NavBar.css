@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  margin: 4vmin auto;
+  justify-content: space-between;
+}
+
+
+a.nav-link {
+  font-weight: 600;
+  background-color: rgba(135, 124, 216, 0.175);
+  padding: 1vmin;
+  color: white;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+a.nav-link:hover {
+  text-decoration: none;
+  background-color: rgba(122, 123, 137, 0.202);
+}
+
+nav span {
+  margin: 0 1vmin;
+  font-weight: 500;
+  font-size: 3vmin;
+}

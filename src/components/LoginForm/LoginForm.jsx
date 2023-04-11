@@ -1,5 +1,8 @@
+// src/components/LoginForm/LoginForm.jsx
+
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import "./LoginForm.css";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -22,7 +25,8 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
-    } catch {
+    } catch(err) {
+      console.log(err);
       setError('Log In Failed - Try Again');
     }
   }
@@ -30,12 +34,12 @@ export default function LoginForm({ setUser }) {
   return (
     <div>
       <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
+        <form autoComplete="off" onSubmit={handleSubmit} className='login-form'>
           <label>Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <button id="login-btn" type="submit">LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
