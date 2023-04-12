@@ -8,17 +8,17 @@ module.exports = {
 
 async function create(req, res) {
   req.body.user = req.user;
-  const application = await Application.create(req.body);
+  const application = await Contact.create(req.body);
   res.json(application);
 }
 
-async function allApplications(req, res) {
-  const application = await Application.find({user: req.user._id});
-  res.json(application);
+async function allContacts(req, res) {
+  const contacts = await Contact.find({user: req.user._id});
+  res.json(contacts);
 }
 
-async function deleteApplication(req, res) {
-  await Application.findByIdAndDelete(req.params.id);
-  const application = await Application.find({user: req.user._id});
-  res.json(application);
+async function deleteContact(req, res) {
+  await Contact.findByIdAndDelete(req.params.id);
+  const contact = await Contact.find({user: req.user._id});
+  res.json(contact);
 }

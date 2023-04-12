@@ -6,6 +6,6 @@ router.post('/create', contactsCtrl.create);
 
 router.get('/', contactsCtrl.allContacts);
 
-// router.delete('/delete/:id', contactsCtrl.delete);
+router.delete('/delete/:id', contactsCtrl.delete);
 
 module.exports = router;

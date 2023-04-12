@@ -13,8 +13,8 @@ async function create(req, res) {
 }
 
 async function allApplications(req, res) {
-  const application = await Application.find({user: req.user._id});
-  res.json(application);
+  const applications = await Application.find({user: req.user._id});
+  res.json(applications);
 }
 
 async function deleteApplication(req, res) {
