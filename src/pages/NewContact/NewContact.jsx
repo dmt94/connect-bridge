@@ -1,33 +1,38 @@
-import "./NewApplication.css";
+import "./NewContact.css";
 import { useState } from "react";
-import * as applicationsAPI from '../../utilities/applications-api';
+import * as contactsAPI from '../../utilities/contacts-api';
 import { useNavigate } from "react-router-dom";
 
-const NewApplication = () => {
+const NewContact = () => {
   const navigate = useNavigate();
-  const [application, setApplication] = useState({text: ""});
+  const [contact, setContact] = useState(
+    {
+      text: ""
+    }
+    );
+  
   function handleChange(evt) {
-    setApplication({text: evt.target.value});
+    setContact({...contact, [evt.target.name]: evt.target.value });
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    if (application) {
-      await applicationsAPI.createApplication(application);
+    if (contact) {
+      await contactsAPI.createContact(contact);
     }
-    setApplication({text: evt.target.value});
-    navigate('/applications');
+    setContact({[evt.target.name]: evt.target.value});
+    navigate('/contacts');
   }
   return ( 
     <>
       <form action="" className="flex-c" onSubmit={ handleSubmit }>
-        <textarea name="new-application" cols="30" rows="10" value={ application.text }
+        <textarea name="new-contact" cols="30" rows="10"
         onChange={ handleChange }
         ></textarea>
-        <button type="submit">Add Application</button>
+        <button type="submit">Add Contact</button>
       </form> 
     </>
    );
 }
  
-export default NewApplication;
+export default NewContact;

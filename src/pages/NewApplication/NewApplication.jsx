@@ -5,9 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 const NewApplication = () => {
   const navigate = useNavigate();
-  const [application, setApplication] = useState({text: ""});
+  const [application, setApplication] = useState(
+    {
+      text: ""
+    }
+    );
+  
   function handleChange(evt) {
-    setApplication({text: evt.target.value});
+    setApplication({...application, [evt.target.name]: evt.target.value });
   }
 
   async function handleSubmit(evt) {
@@ -15,7 +20,7 @@ const NewApplication = () => {
     if (application) {
       await applicationsAPI.createApplication(application);
     }
-    setApplication({text: evt.target.value});
+    setApplication({[evt.target.name]: evt.target.value});
     navigate('/applications');
   }
   return ( 
