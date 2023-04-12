@@ -9,3 +9,12 @@
   max-width: 800px;
   align-self: center;
 }
+
+.flex-r {
+  display: flex;
+  flex-direction: row;
+}
+
+.radio-div{
+  margin: 2vmin;
+}

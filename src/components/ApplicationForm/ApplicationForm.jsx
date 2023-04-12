@@ -40,10 +40,29 @@ const ApplicationForm = () => {
           <input type="text" name="salary" required onChange={handleChange} />
 
           <label htmlFor="status">Status:</label>
-          <input type="text" name="role" required onChange={handleChange} />
-        
+          <select name="status" id="status" required>
+            <option value="Waiting" selected>Waiting</option>
+            <option value="Received Offer">Received Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Interviewing">Interviewing</option>
+          </select>
 
+          <label htmlFor="salary">Salary Expectation:</label>
+          <input type="text" name="salary" required onChange={handleChange} />
 
+          <label>Is a priority application? </label>
+          <div className="flex-r">
+            <div className="radio-div">
+              <input type="radio" name="priority" value="yes" />
+              <label for="yes">Yes</label>
+            </div>
+
+            <div className="radio-div">
+              <input type="radio" name="priority" value="no" />
+              <label for="no">No</label>
+            </div>
+          </div>
+          
         <button type="submit">Add Application</button>
       </form> 
     </div>
