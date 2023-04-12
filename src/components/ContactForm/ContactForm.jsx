@@ -48,35 +48,35 @@ const ContactForm = () => {
           <label htmlFor="url">URL:</label>
           <input type="text" name="url" required onChange={handleChange} />
 
-          <label>Waiting for response? </label>
+          <label htmlFor="response">Waiting for response? </label>
           <div className="flex-r">
             <div className="radio-div">
-              <input type="radio" name="response" value="yes" />
-              <label for="yes">Yes</label>
+              <input type="radio" name="response" value="yes" onChange={handleChange} />
+              <label htmlFor="yes">Yes</label>
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="response" value="no" checked />
-              <label for="no">No</label>
+              <input type="radio" name="response" value="no" checked onChange={handleChange} />
+              <label htmlFor="no">No</label>
             </div>
           </div>
 
-          <label>Star Contact? </label>
+          <label htmlFor="star">Star Contact? </label>
           <div className="flex-r">
             <div className="radio-div">
-              <input type="radio" name="star" value="yes" />
-              <label for="yes">Yes</label>
+              <input type="radio" name="star" value="yes" onChange={handleChange} />
+              <label htmlFor="yes">Yes</label>
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="star" value="no" checked />
-              <label for="no">No</label>
+              <input type="radio" name="star" value="no" checked onChange={handleChange} />
+              <label htmlFor="no">No</label>
             </div>
           </div>
 
           <label htmlFor="relationship">Relationship with Contact:</label>
-          <select name="relationship" required>
-            <option value="Professional" selected>Professional</option>
+          <select name="relationship" required onChange={handleChange}>
+            <option value="Professional" defaultChecked>Professional</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
             <option value="Close Friend">Close Friend</option>

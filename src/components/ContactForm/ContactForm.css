@@ -1,0 +1,11 @@
+.contact-form {
+  /* max-width: 800px; */
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+.contact-form form {
+  width: 500px;
+  max-width: 900px;
+  align-self: center;
+}
