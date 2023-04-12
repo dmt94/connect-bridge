@@ -1,0 +1,21 @@
+.application-form {
+  /* max-width: 800px; */
+  align-content: center;
+}
+
+.application-form .flex-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-r {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-inputs label {
+  margin-right: 2vmin;
+}

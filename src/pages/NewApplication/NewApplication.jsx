@@ -1,38 +1,12 @@
-import "./NewApplication.css";
-import { useState } from "react";
-import * as applicationsAPI from '../../utilities/applications-api';
-import { useNavigate } from "react-router-dom";
+import ApplicationForm from "../../components/ApplicationForm/ApplicationForm";
+import './NewApplication.css'
 
-const NewApplication = () => {
-  const navigate = useNavigate();
-  const [application, setApplication] = useState(
-    {
-      text: ""
-    }
-    );
-  
-  function handleChange(evt) {
-    setApplication({...application, [evt.target.name]: evt.target.value });
-  }
 
-  async function handleSubmit(evt) {
-    evt.preventDefault();
-    if (application) {
-      await applicationsAPI.createApplication(application);
-    }
-    setApplication({[evt.target.name]: evt.target.value});
-    navigate('/applications');
-  }
-  return ( 
-    <>
-      <form action="" className="flex-c" onSubmit={ handleSubmit }>
-        <textarea name="new-application" cols="30" rows="10" value={ application.text }
-        onChange={ handleChange }
-        ></textarea>
-        <button type="submit">Add Application</button>
-      </form> 
-    </>
-   );
+export default function NewApplication() {
+  return (
+    <div className="new-application-page">
+      <h1>Add New Application 📌</h1>
+      <ApplicationForm />
+    </div>
+  );
 }
- 
-export default NewApplication;
