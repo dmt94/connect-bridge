@@ -6,6 +6,6 @@ router.post('/create', applicationsCtrl.create);
 
 router.get('/', applicationsCtrl.allApplications);
 
-router.delete('/delete/:id', applicationsCtrl.deleteApplication);
+router.delete('/delete/:id', applicationsCtrl.delete);
 
 module.exports = router;
