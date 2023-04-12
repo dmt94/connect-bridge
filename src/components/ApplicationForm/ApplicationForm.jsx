@@ -25,15 +25,23 @@ const ApplicationForm = () => {
   }
   return ( 
     <div className="application-form">
-      <form action="" className="flex-c" onSubmit={ handleSubmit }>
-        <div className="form-inputs flex-r">
+      <form action="" className="" onSubmit={ handleSubmit }>
+        
           <label htmlFor="role">Position:</label>
           <input type="text" name="role" required onChange={handleChange} />
-        </div>
-        <div className="form-inputs flex-r">
-          <label htmlFor="role">Position:</label>
+        
+          <label htmlFor="website">Application Website:</label>
           <input type="text" name="role" required onChange={handleChange} />
-        </div>
+
+          <label htmlFor="description">Description:</label>
+          <textarea type="text" name="description" required onChange={handleChange} />
+
+          <label htmlFor="salary">Salary Expectation:</label>
+          <input type="text" name="salary" required onChange={handleChange} />
+
+          <label htmlFor="status">Status:</label>
+          <input type="text" name="role" required onChange={handleChange} />
+        
 
 
         <button type="submit">Add Application</button>
