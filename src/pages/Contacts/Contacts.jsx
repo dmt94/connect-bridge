@@ -4,8 +4,9 @@ import './Contacts.css';
 
 export default function NavBar({ user, setUser }) {
   return (
-    <div className=''>
+    <div className='contacts-div'>
       <h1>Contacts</h1>
+      <Link to='/contacts/new' className=''>Add New Contact</Link>
     </div>
   );
 }
