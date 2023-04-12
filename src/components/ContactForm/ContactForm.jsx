@@ -86,10 +86,17 @@ const ContactForm = () => {
           <label htmlFor="about">About:</label>
           <textarea type="text" name="about" required onChange={handleChange} />
 
-          <label htmlFor="mutuals">Mutual Contacts:</label>
-          <select name="mutuals" required onChange={handleChange}>
-            <option value="">Contact 1...</option>
-          </select>
+          <div className="flex-c select-contacts-div">
+            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
+          </div>
+          <div className="select-contacts-div">
+              <label htmlFor="mutuals">Mutual Contacts:</label>
+              <select name="mutuals" required onChange={handleChange} multiple className="multiple-select">
+                <option value="">Contact 1...</option>
+                <option value="">Contact 2...</option>
+                <option value="">Contact 3...</option>
+              </select>
+          </div>
           
         <button type="submit">Add Contact</button>
       </form> 

@@ -70,7 +70,7 @@ const ApplicationForm = () => {
                 <option value="">Contact 2...</option>
                 <option value="">Contact 3...</option>
               </select>
-            </div>
+          </div>
           
         <button type="submit">Add Application</button>
       </form> 
