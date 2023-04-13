@@ -10,14 +10,14 @@ const contact = new Schema({
     type: String, 
     required: true 
   },
-  role: {
+  position: {
     type: String,
     required: true
   },
   company: {
     type: String,
   },
-  description: {
+  about: {
     type: String,
   },
   email: {
@@ -39,7 +39,7 @@ const contact = new Schema({
   url: {
     type: String,
   },
-  waitingOn: {
+  response: {
     type: Boolean,
     default: false
   },
@@ -58,17 +58,11 @@ const contact = new Schema({
     type: Boolean,
     default: false
   },
-  contact: [
+  mutuals: [
    [ {
       type: Schema.Types.ObjectId,
       ref: 'Contact'
     }, ]
-  ],
-  task: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Task'
-    }
   ]
 }, {
   timestamps: true

@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
   }
   return (
     <div className='navbar'>
-      <nav className='flex-c'>
+      <nav className='flex-r'>
         <div>
           <Link to="/" className="nav-link">Dashboard</Link>
           &nbsp; | &nbsp; 

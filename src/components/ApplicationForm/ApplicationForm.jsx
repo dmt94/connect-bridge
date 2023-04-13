@@ -26,18 +26,23 @@ const ApplicationForm = () => {
   return ( 
     <div className="application-form">
       <form action="" className="" onSubmit={ handleSubmit }>
-        
-          <label htmlFor="role">Position:</label>
+          <label htmlFor="date">Date:</label>
+          <input type="date" name="date" id="" value="" />
+
+          <label htmlFor="role">*Position:</label>
           <input type="text" name="role" required onChange={handleChange} />
         
-          <label htmlFor="website">Application Website:</label>
+          <label htmlFor="applicationUrl">*Application URL:</label>
+          <input type="text" name="applicationUrl" required onChange={handleChange} />
+
+          <label htmlFor="company">*Company:</label>
           <input type="text" name="role" required onChange={handleChange} />
 
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description">*Description:</label>
           <textarea type="text" name="description" required onChange={handleChange} />
 
           <label htmlFor="salary">Salary Expectation:</label>
-          <input type="text" name="salary" required onChange={handleChange} />
+          <input type="text" name="salary" required onChange={handleChange} placeholder="$"/>
 
           <label htmlFor="status">Status:</label>
           <select name="status" id="status" required>
@@ -61,7 +66,7 @@ const ApplicationForm = () => {
           </div>
 
           <div className="flex-c select-contacts-div">
-            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
+            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options and de-select.</span>
           </div>
           <div className="select-contacts-div">
               <label htmlFor="contacts">Contacts:</label>

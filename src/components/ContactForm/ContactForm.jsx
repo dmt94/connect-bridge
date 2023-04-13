@@ -27,20 +27,20 @@ const ContactForm = () => {
     <div className="contact-form">
       <form action="" className="" onSubmit={ handleSubmit }>
         
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">*Name:</label>
           <input type="text" name="name" required onChange={handleChange} />
         
           <label htmlFor="company">Company:</label>
           <input type="text" name="company" required onChange={handleChange} />
 
-          <label htmlFor="position">Position:</label>
+          <label htmlFor="position">*Position:</label>
           <input type="text" name="position" required onChange={handleChange} />
 
           <label htmlFor="email">Email:</label>
           <input type="text" name="email" required onChange={handleChange} />
 
-          <label htmlFor="phone-number">Phone Number:</label>
-          <input type="text" name="phone-number" required onChange={handleChange} />
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input type="text" name="phoneNumber" required onChange={handleChange} />
 
           <label htmlFor="linkedin">Linkedin:</label>
           <input type="text" name="linkedin" required onChange={handleChange} />
@@ -61,15 +61,15 @@ const ContactForm = () => {
             </div>
           </div>
 
-          <label htmlFor="star">Star Contact? </label>
+          <label htmlFor="starContact">Star Contact? </label>
           <div className="flex-r">
             <div className="radio-div">
-              <input type="radio" name="star" value="yes" onChange={handleChange} />
+              <input type="radio" name="starContact" value="yes" onChange={handleChange} />
               <label htmlFor="yes">Yes</label>
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="star" value="no" checked onChange={handleChange} />
+              <input type="radio" name="starContact" value="no" checked onChange={handleChange} />
               <label htmlFor="no">No</label>
             </div>
           </div>
