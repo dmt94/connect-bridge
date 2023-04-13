@@ -15,7 +15,6 @@ const contact = new Schema({
   },
   position: {
     type: String,
-    required: true
   },
   company: {
     type: String,
@@ -25,12 +24,12 @@ const contact = new Schema({
   },
   email: {
     type: String,
-    validate: {
-      validator: function(v) {
-        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
-      },
-      message: "Enter a valid email for this contact"
-    }
+    // validate: {
+    //   validator: function(v) {
+    //     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+    //   },
+    //   message: "Enter a valid email for this contact"
+    // }
   },
   phoneNumber: {
     type: String,

@@ -7,6 +7,8 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   if (payload) {
     options.headers = { 'Content-Type': 'application/json' };
     options.body = JSON.stringify(payload);
+    console.log("options", options);
+    console.log("payload", payload);
   }
   const token = getToken();
   if (token) {

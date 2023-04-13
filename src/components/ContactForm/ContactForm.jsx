@@ -5,16 +5,57 @@ import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
   const navigate = useNavigate();
+
+  const [contactImage, setContactImage] = useState({myFile: ""});
+
   const [contact, setContact] = useState(
     {
-      text: ""
+      name: "",
+      image: contactImage.myFile,
+      position: "",
+      company: "",
+      about: "",
+      email: "",
+      phoneNumber: "",
+      linkedin: "",
+      url: "",
+      response: false,
+      relationship: "Professional",
+      starContact: false,
+      mutuals: [],
     }
     );
-  
-  function handleChange(evt) {
-    console.log(evt.target.files[0]);
-    setContact({...contact, [evt.target.name]: evt.target.value });
+
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    })
   }
+  
+  async function handleChange(evt) {
+    if (evt.target.name === "image") {
+      setContact({...contact, [evt.target.name]: await convertToBase64(evt.target.files[0])})
+    } else {
+      setContact({...contact, [evt.target.name]: evt.target.value });
+    }
+    console.log("handleChange", contact)
+  }
+
+  // async function handleFileUpload(evt) {
+  //   const file = evt.target.files[0];
+  //   const base64 = await convertToBase64(file);
+  //   console.log(`base64: ${base64}, file: ${file}`);
+  //   setContactImage({...contactImage, myFile: base64});
+  //   setContact({...contact, image: base64})
+  //   console.log("handle file upload", contact);
+  // }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -22,7 +63,7 @@ const ContactForm = () => {
       await contactsAPI.createContact(contact);
     }
     setContact({[evt.target.name]: evt.target.value});
-    navigate('/contacts');
+    navigate('/contacts'); 
   }
   return ( 
     <div className="contact-form">
@@ -32,25 +73,25 @@ const ContactForm = () => {
           <input type="text" name="name" required onChange={handleChange} />
 
           <label htmlFor="image">Image:</label>
-          <input type="file" name="image" required onChange={handleChange} />
+          <input type="file" name="image" onChange={handleChange} />
         
           <label htmlFor="company">Company:</label>
-          <input type="text" name="company" required onChange={handleChange} />
+          <input type="text" name="company" onChange={handleChange} />
 
-          <label htmlFor="position">*Position:</label>
-          <input type="text" name="position" required onChange={handleChange} />
+          <label htmlFor="position">Position:</label>
+          <input type="text" name="position" onChange={handleChange} />
 
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" required onChange={handleChange} />
+          <input type="text" name="email" onChange={handleChange} />
 
           <label htmlFor="phoneNumber">Phone Number:</label>
-          <input type="text" name="phoneNumber" required onChange={handleChange} />
+          <input type="text" name="phoneNumber" onChange={handleChange} />
 
           <label htmlFor="linkedin">Linkedin:</label>
-          <input type="text" name="linkedin" required onChange={handleChange} />
+          <input type="text" name="linkedin" onChange={handleChange} />
 
           <label htmlFor="url">URL:</label>
-          <input type="text" name="url" required onChange={handleChange} />
+          <input type="text" name="url" onChange={handleChange} />
 
           <label htmlFor="response">Waiting for response? </label>
           <div className="flex-r">
@@ -79,7 +120,7 @@ const ContactForm = () => {
           </div>
 
           <label htmlFor="relationship">Relationship with Contact:</label>
-          <select name="relationship" required onChange={handleChange}>
+          <select name="relationship" onChange={handleChange}>
             <option value="Professional" defaultChecked>Professional</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
@@ -88,14 +129,14 @@ const ContactForm = () => {
           </select>
 
           <label htmlFor="about">About:</label>
-          <textarea type="text" name="about" required onChange={handleChange} />
+          <textarea type="text" name="about" onChange={handleChange} />
 
           <div className="flex-c select-contacts-div">
             <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
           </div>
           <div className="select-contacts-div">
               <label htmlFor="mutuals">Mutual Contacts:</label>
-              <select name="mutuals" required onChange={handleChange} multiple className="multiple-select">
+              <select name="mutuals" onChange={handleChange} multiple className="multiple-select">
                 <option value="">Contact 1...</option>
                 <option value="">Contact 2...</option>
                 <option value="">Contact 3...</option>
