@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import './ContactCard.css';
 
-const ContactCard = ({contact}) => {
+const ContactCard = ({contact, deleteContact}) => {
   return ( 
     <div className="flex-r contact-card">
       <div className="flex-c contact-card-info">
@@ -10,8 +11,10 @@ const ContactCard = ({contact}) => {
         <p>{contact.position}</p>
         <p>{contact.email}</p>
       </div>
-      <div className="flex-c">
+      <div className="flex-c contact-card-rightc">
         <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
+        <Link to="" className='more-links'>View More</Link>
+        <button className='delete-btn' onClick={() => deleteContact(contact._id) }>Delete</button>
       </div>
     </div>
    );

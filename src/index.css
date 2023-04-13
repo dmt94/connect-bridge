@@ -4,7 +4,7 @@
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --dark-4: #161618f9;
-  --orange: #F67F00;
+  --red: #fc2e1f9d;
   --text-light: #968c84;
   --text-dark: #615954;
 }
@@ -122,14 +122,13 @@ input:focus {
 
 button, a.button {
   margin: 1vmin;
-  padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: rgba(255, 0, 0, 0);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: none;
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;

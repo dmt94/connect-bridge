@@ -1,8 +1,8 @@
 .contact-img {
   padding: 2vmin;
-  width: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 30px;
-  margin: 2vmin 0 0 2vmin;
 }
 
 .contact-card {
@@ -35,7 +35,33 @@
 
 .contact-card-info h4 {
   font-size: 20px;
-  margin-top: 1vmin;
+  margin: 2vmin 0 2vmin;
 }
 
-/* .contact-card */
+.contact-card-rightc {
+  margin-top: 1vmin;
+
+}
+
+.contact-card-rightc .more-links {
+  padding: 0;
+  background-color: rgba(245, 245, 220, 0);
+  color: rgb(114, 102, 102);
+  text-align: center
+}
+
+.contact-card-rightc .more-links:hover {
+  padding: 0;
+  background-color: rgba(245, 245, 220, 0);
+  color: rgb(34, 31, 31);
+}
+
+.delete-btn {
+  margin: 3vmin 0 1vmin 0;
+  width: fit-content;
+  text-align: center;
+}
+
+.delete-btn:hover {
+  color: red;
+}

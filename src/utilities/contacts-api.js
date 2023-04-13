@@ -13,8 +13,8 @@ export async function getContact(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
 
-export async function deleteContact(id) {
-  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+export async function deleteAContact(id) {
+  return sendRequest(`${BASE_URL}/delete/${id}`, 'DELETE');
 }
 
 
