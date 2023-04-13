@@ -12,6 +12,7 @@ const ContactForm = () => {
     );
   
   function handleChange(evt) {
+    console.log(evt.target.files[0]);
     setContact({...contact, [evt.target.name]: evt.target.value });
   }
 
@@ -29,6 +30,9 @@ const ContactForm = () => {
         
           <label htmlFor="name">*Name:</label>
           <input type="text" name="name" required onChange={handleChange} />
+
+          <label htmlFor="image">Image:</label>
+          <input type="file" name="image" required onChange={handleChange} />
         
           <label htmlFor="company">Company:</label>
           <input type="text" name="company" required onChange={handleChange} />

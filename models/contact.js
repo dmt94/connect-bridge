@@ -10,6 +10,9 @@ const contact = new Schema({
     type: String, 
     required: true 
   },
+  image: {
+    type: String
+  },
   position: {
     type: String,
     required: true
