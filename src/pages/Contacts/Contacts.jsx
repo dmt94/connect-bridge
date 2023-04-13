@@ -22,9 +22,9 @@ export default function NavBar({ user, setUser }) {
       <Link to='/contacts/new' className=''>Add New Contact</Link>
       <div>
         {
-          contacts.map((contact, idx) => {
+          contacts.map((contact, idx) => (
             <ContactCard key={idx} contact={ contact } />
-          })
+          ))
         }
 
       </div>
