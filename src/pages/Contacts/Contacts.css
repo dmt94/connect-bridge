@@ -13,3 +13,11 @@
 .contacts-div h1 {
   text-align: center;
 }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 2vmin;
+  justify-content: center;
+  margin-top: 8vmin;
+}

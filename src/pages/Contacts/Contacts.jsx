@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser }) {
     <div className='contacts-div'>
       <h1>Contacts</h1>
       <Link to='/contacts/new' className=''>Add New Contact</Link>
-      <div>
+      <div className='contact-grid'>
         {
           contacts.map((contact, idx) => (
             <ContactCard key={idx} contact={ contact } />

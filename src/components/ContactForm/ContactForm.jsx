@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 const ContactForm = () => {
   const navigate = useNavigate();
 
-  const [contactImage, setContactImage] = useState({myFile: ""});
+  // const [contactImage, setContactImage] = useState({myFile: ""});
 
   const [contact, setContact] = useState(
     {
       name: "",
-      image: contactImage.myFile,
+      image: "",
       position: "",
       company: "",
       about: "",

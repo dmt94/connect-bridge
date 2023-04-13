@@ -1,0 +1,41 @@
+.contact-img {
+  padding: 2vmin;
+  width: 100px;
+  border-radius: 30px;
+  margin: 2vmin 0 0 2vmin;
+}
+
+.contact-card {
+  background-color: antiquewhite;
+  justify-content: space-between;
+  border-radius: 9px;
+}
+
+.contact-card * {
+  color: black;
+  margin: 0;
+}
+
+.contact-card-info {
+  width: 50%;
+  padding: 2vmin;
+}
+
+.contact-card-info * {
+  text-align: left;
+}
+
+.contact-card-info h3 {
+  background-color: black;
+  color: white;
+  padding: 1vmin;
+  border-radius: 23px;
+  text-align: center;
+}
+
+.contact-card-info h4 {
+  font-size: 20px;
+  margin-top: 1vmin;
+}
+
+/* .contact-card */
