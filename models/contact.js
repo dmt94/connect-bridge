@@ -42,7 +42,9 @@ const contact = new Schema({
   },
   response: {
     type: Boolean,
-    default: false
+  },
+  reference: {
+    type: Boolean,
   },
   relationship: {
     type: String,
@@ -57,7 +59,6 @@ const contact = new Schema({
   },
   starContact: {
     type: Boolean,
-    default: false
   },
   mutuals: [ {
       type: Schema.Types.ObjectId,

@@ -72,38 +72,38 @@ const ContactForm = ({ contacts }) => {
 
           <label htmlFor="image">Image:</label>
           <span>Set contact's photo</span>
-          <button className="img-btn" onClick={handleContactImageButton}>{toggle ? "Upload image" : "Provide URL link"}</button>
+          <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
           {
-            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={handleChange} />) : (<input type="file" name="image" onChange={handleChange} />)
+            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
           }
         
           <label htmlFor="company">Company:</label>
-          <input type="text" name="company" onChange={handleChange} />
+          <input type="text" name="company" onChange={ handleChange } />
 
           <label htmlFor="position">Position:</label>
-          <input type="text" name="position" onChange={handleChange} />
+          <input type="text" name="position" onChange={ handleChange } />
 
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" onChange={handleChange} />
+          <input type="text" name="email" onChange={ handleChange } />
 
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input type="text" name="phoneNumber" onChange={handleChange} />
 
           <label htmlFor="linkedin">Linkedin:</label>
-          <input type="text" name="linkedin" onChange={handleChange} />
+          <input type="text" name="linkedin" onChange={ handleChange } />
 
           <label htmlFor="url">URL:</label>
-          <input type="text" name="url" onChange={handleChange} />
+          <input type="text" name="url" onChange={ handleChange } />
 
           <label htmlFor="response">Waiting for response? </label>
           <div className="flex-r">
             <div className="radio-div">
-              <input type="radio" name="response" value="yes" onChange={handleChange} />
+              <input type="radio" name="response" value={true} onChange={ handleChange } />
               <label htmlFor="yes">Yes</label>
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="response" value="no" checked onChange={handleChange} />
+              <input type="radio" name="response" value={false} checked onChange={ handleChange } />
               <label htmlFor="no">No</label>
             </div>
           </div>
@@ -111,18 +111,18 @@ const ContactForm = ({ contacts }) => {
           <label htmlFor="starContact">Star Contact? </label>
           <div className="flex-r">
             <div className="radio-div">
-              <input type="radio" name="starContact" value="yes" onChange={handleChange} />
+              <input type="radio" name="starContact" value={true} onChange={ handleChange } />
               <label htmlFor="yes">Yes</label>
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="starContact" value="no" checked onChange={handleChange} />
+              <input type="radio" name="starContact" value={false} checked onChange={ handleChange } />
               <label htmlFor="no">No</label>
             </div>
           </div>
 
           <label htmlFor="relationship">Relationship with Contact:</label>
-          <select name="relationship" onChange={handleChange}>
+          <select name="relationship" onChange={ handleChange }>
             <option value="Professional" defaultChecked>Professional</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
@@ -131,14 +131,14 @@ const ContactForm = ({ contacts }) => {
           </select>
 
           <label htmlFor="about">About:</label>
-          <textarea type="text" name="about" onChange={handleChange} />
+          <textarea type="text" name="about" onChange={ handleChange } />
 
           <div className="flex-c select-contacts-div">
             <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
           </div>
           <div className="select-contacts-div">
               <label htmlFor="mutuals">Mutual Contacts:</label>
-              <select name="mutuals" onChange={handleChange} multiple className="multiple-select">
+              <select name="mutuals" onChange={ handleChange } multiple className="multiple-select">
                 
                 {contacts.map((contact, idx) => (                  
                   <option key={idx} value={contact._id}>{contact.name}</option>
