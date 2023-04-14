@@ -157,3 +157,12 @@ button[type="submit"] {
 a {
   text-decoration: none;
 }
+
+.btn-light {
+  background-color: white;
+  color: black;
+}
+
+.btn-light:hover {
+  opacity: 0.8;
+}

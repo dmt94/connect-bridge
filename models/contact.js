@@ -33,7 +33,6 @@ const contact = new Schema({
   },
   phoneNumber: {
     type: String,
-    match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
   },
   linkedIn: {
     type: String,
