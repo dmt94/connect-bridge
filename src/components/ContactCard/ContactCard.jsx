@@ -12,7 +12,9 @@ const ContactCard = ({contact, deleteContact}) => {
         <p>{contact.email}</p>
       </div>
       <div className="flex-c contact-card-rightc">
-        <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
+        <div className="contact-img-canvas">
+          <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
+        </div>
         <Link to="" className='more-links'>View More</Link>
         <button className='delete-btn' onClick={() => deleteContact(contact._id) }>Delete</button>
       </div>

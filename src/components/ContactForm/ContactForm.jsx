@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const ContactForm = () => {
   const navigate = useNavigate();
 
-  // const [contactImage, setContactImage] = useState({myFile: ""});
+  const [toggle, setToggle] = useState(false);
 
   const [contact, setContact] = useState(
     {
@@ -40,7 +40,7 @@ const ContactForm = () => {
   }
   
   async function handleChange(evt) {
-    if (evt.target.name === "image") {
+    if (evt.target.type === "file") {
       setContact({...contact, [evt.target.name]: await convertToBase64(evt.target.files[0])})
     } else {
       setContact({...contact, [evt.target.name]: evt.target.value });
@@ -48,14 +48,10 @@ const ContactForm = () => {
     console.log("handleChange", contact)
   }
 
-  // async function handleFileUpload(evt) {
-  //   const file = evt.target.files[0];
-  //   const base64 = await convertToBase64(file);
-  //   console.log(`base64: ${base64}, file: ${file}`);
-  //   setContactImage({...contactImage, myFile: base64});
-  //   setContact({...contact, image: base64})
-  //   console.log("handle file upload", contact);
-  // }
+  function handleContactImageButton(evt) {
+    evt.preventDefault();
+    setToggle(!toggle);
+  }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -73,7 +69,11 @@ const ContactForm = () => {
           <input type="text" name="name" required onChange={handleChange} />
 
           <label htmlFor="image">Image:</label>
-          <input type="file" name="image" onChange={handleChange} />
+          <span>Set contact's photo</span>
+          <button className="img-btn" onClick={handleContactImageButton}>{toggle ? "Upload image" : "Provide URL link"}</button>
+          {
+            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={handleChange} />) : (<input type="file" name="image" onChange={handleChange} />)
+          }
         
           <label htmlFor="company">Company:</label>
           <input type="text" name="company" onChange={handleChange} />

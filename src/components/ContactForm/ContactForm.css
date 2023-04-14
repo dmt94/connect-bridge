@@ -8,3 +8,13 @@
   max-width: 900px;
   align-self: center;
 }
+
+.img-btn {
+  background-color: antiquewhite;
+  color: black;
+  padding: 2px;
+}
+
+.img-btn:hover {
+  opacity: 0.8;
+}

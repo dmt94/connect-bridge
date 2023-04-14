@@ -1,8 +1,16 @@
+.contact-img-canvas {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  
+}
 .contact-img {
-  padding: 2vmin;
-  width: 110px;
-  height: 110px;
   border-radius: 30px;
+  padding: 2vmin;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
 }
 
 .contact-card {
@@ -47,7 +55,8 @@
   padding: 0;
   background-color: rgba(245, 245, 220, 0);
   color: rgb(114, 102, 102);
-  text-align: center
+  text-align: center;
+  text-decoration: underline;
 }
 
 .contact-card-rightc .more-links:hover {

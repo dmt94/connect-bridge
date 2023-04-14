@@ -7,8 +7,6 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   if (payload) {
     options.headers = { 'Content-Type': 'application/json' };
     options.body = JSON.stringify(payload);
-    console.log("options", options);
-    console.log("payload", payload);
   }
   const token = getToken();
   if (token) {
@@ -21,7 +19,6 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   }
   
   const res = await fetch(url, options);
-  console.log("res", res);
   // if res.ok is false then something went wrong
   if (res.ok) return res.json();
   throw new Error('Bad Request');

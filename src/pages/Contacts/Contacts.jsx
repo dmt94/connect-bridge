@@ -17,7 +17,6 @@ export default function NavBar({ user, setUser }) {
   }, []);
 
   async function deleteContact(id) {
-    console.log("id", id);
     const updatedContact = await contactsAPI.deleteAContact(id);
     setContacts(updatedContact);
   }
