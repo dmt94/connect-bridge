@@ -42,10 +42,12 @@ const ContactForm = () => {
   async function handleChange(evt) {
     if (evt.target.type === "file") {
       setContact({...contact, [evt.target.name]: await convertToBase64(evt.target.files[0])})
+    } else if (evt.target.name === "mutuals") {
+      let value = Array.from(evt.target.selectedOptions, option => option.value);
+      setContact({...contact, [evt.target.name]: value})
     } else {
       setContact({...contact, [evt.target.name]: evt.target.value });
     }
-    console.log("handleChange", contact)
   }
 
   function handleContactImageButton(evt) {
@@ -137,9 +139,9 @@ const ContactForm = () => {
           <div className="select-contacts-div">
               <label htmlFor="mutuals">Mutual Contacts:</label>
               <select name="mutuals" onChange={handleChange} multiple className="multiple-select">
-                <option value="">Contact 1...</option>
-                <option value="">Contact 2...</option>
-                <option value="">Contact 3...</option>
+                <option value="Contact 1 ID">Contact 1...</option>
+                <option value="Contact 2 ID">Contact 2...</option>
+                <option value="Contact 3 ID">Contact 3...</option>
               </select>
           </div>
           

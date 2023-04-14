@@ -10,6 +10,7 @@ const ContactCard = ({contact, deleteContact}) => {
         <p>{contact.company}</p>
         <p>{contact.position}</p>
         <p>{contact.email}</p>
+        
       </div>
       <div className="flex-c contact-card-rightc">
         <div className="contact-img-canvas">

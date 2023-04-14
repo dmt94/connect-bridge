@@ -61,10 +61,10 @@ const contact = new Schema({
     default: false
   },
   mutuals: [
-   [ {
+   {
       type: Schema.Types.ObjectId,
       ref: 'Contact'
-    }, ]
+    }
   ]
 }, {
   timestamps: true
