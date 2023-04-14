@@ -20,7 +20,12 @@ const ContactPage = () => {
           <img src={contact.image} alt="" className="contact-profile-img" />
         </div>
         <div>
-          <a href={`https://${contact.url}`} target="_blank" rel="noreferrer">GITHUB</a>
+          {
+            contact.url ? <a href={`${contact.url}`} target="_blank" rel="noreferrer">Website</a> : ""
+          }
+          {
+            contact.linkedin ? <a href={`${contact.linkedin}`} target="_blank" rel="noreferrer">Linkedin</a> : ""
+          }
         </div>
       </div>
       <h4>{contact.name}</h4>
