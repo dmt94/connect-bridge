@@ -9,6 +9,7 @@ const ContactPage = () => {
   const goBack = () => {
     navigate(-1);
   }
+
   return ( 
     <>
       <h2>Contact Page</h2>
@@ -19,8 +20,7 @@ const ContactPage = () => {
           <img src={contact.image} alt="" className="contact-profile-img" />
         </div>
         <div>
-          <p>{contact.linkedin}</p>
-          <p>{contact.url}</p>
+          <a href={`https://${contact.url}`} target="_blank" rel="noreferrer">GITHUB</a>
         </div>
       </div>
       <h4>{contact.name}</h4>
@@ -35,7 +35,7 @@ const ContactPage = () => {
         contact.mutuals.map((contact, idx) => (
           contact.mutuals ? 
           <li key={idx}>
-            <Link to={`/contacts/${contact._id}`} state={contact}>
+            <Link className="mutual-link" to={`/contacts/${contact._id}`} state={contact}>
               <p>{contact.name}</p>
             </Link>
             <p>Your {contact.relationship}</p>

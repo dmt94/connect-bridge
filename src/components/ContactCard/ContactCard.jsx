@@ -13,12 +13,7 @@ function ContactCard({contact, deleteContact, getAContact, mutuals}){
         <p>{contact.position}</p>
         <p>{contact.email}</p>
         <div>
-          <span>Mutuals:</span>
-          {
-            contact.mutuals ? contact.mutuals.map((mutual, idx) => (
-              <p key={idx}>{mutual.name}</p>
-            )) : "doesnt exist"
-          }       
+          <span>{contact.mutuals.length} mutuals</span>
         </div>
 
       </div>

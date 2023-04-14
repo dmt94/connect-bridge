@@ -95,6 +95,32 @@ const ContactForm = ({ contacts }) => {
           <label htmlFor="url">URL:</label>
           <input type="text" name="url" onChange={ handleChange } />
 
+          <label htmlFor="relationship">Relationship with Contact:</label>
+          <select name="relationship" onChange={ handleChange }>
+            <option value="Professional" defaultChecked>Professional</option>
+            <option value="Colleague">Colleague</option>
+            <option value="Friend">Friend</option>
+            <option value="Close Friend">Close Friend</option>
+            <option value="Family">Family</option>
+          </select>
+
+          <label htmlFor="about">About:</label>
+          <textarea type="text" name="about" onChange={ handleChange } />
+
+          <div className="flex-c select-contacts-div">
+            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
+          </div>
+          <div className="select-contacts-div">
+              <label htmlFor="mutuals">Mutual Contacts:</label>
+              <select name="mutuals" onChange={ handleChange } multiple className="multiple-select">
+                
+                {contacts.map((contact, idx) => (                  
+                  <option key={idx} value={contact._id}>{contact.name}</option>
+                ))}
+
+              </select>
+          </div>
+
           <label htmlFor="response">Waiting for response? </label>
           <div className="flex-r">
             <div className="radio-div">
@@ -121,30 +147,17 @@ const ContactForm = ({ contacts }) => {
             </div>
           </div>
 
-          <label htmlFor="relationship">Relationship with Contact:</label>
-          <select name="relationship" onChange={ handleChange }>
-            <option value="Professional" defaultChecked>Professional</option>
-            <option value="Colleague">Colleague</option>
-            <option value="Friend">Friend</option>
-            <option value="Close Friend">Close Friend</option>
-            <option value="Family">Family</option>
-          </select>
+          <label htmlFor="reference">A reference? </label>
+          <div className="flex-r">
+            <div className="radio-div">
+              <input type="radio" name="reference" value={true} onChange={ handleChange } />
+              <label htmlFor="yes">Yes</label>
+            </div>
 
-          <label htmlFor="about">About:</label>
-          <textarea type="text" name="about" onChange={ handleChange } />
-
-          <div className="flex-c select-contacts-div">
-            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
-          </div>
-          <div className="select-contacts-div">
-              <label htmlFor="mutuals">Mutual Contacts:</label>
-              <select name="mutuals" onChange={ handleChange } multiple className="multiple-select">
-                
-                {contacts.map((contact, idx) => (                  
-                  <option key={idx} value={contact._id}>{contact.name}</option>
-                ))}
-
-              </select>
+            <div className="radio-div">
+              <input type="radio" name="reference" value={false} checked onChange={ handleChange } />
+              <label htmlFor="no">No</label>
+            </div>
           </div>
           
         <button type="submit">Add Contact</button>

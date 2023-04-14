@@ -5,3 +5,16 @@
 .about-contact-div {
   margin-top: 4vmin;
 }
+
+.mutual-link p {
+  text-decoration: none;
+  color: rgb(31, 31, 31);
+  background-color: white;
+  width: fit-content;
+  padding: 1vmin;
+}
+.mutual-link p:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.226);
+}
+

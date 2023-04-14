@@ -34,7 +34,7 @@ const contact = new Schema({
   phoneNumber: {
     type: String,
   },
-  linkedIn: {
+  linkedin: {
     type: String,
   },
   url: {
