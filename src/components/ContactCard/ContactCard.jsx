@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ContactCard.css';
-import * as contactsAPI from '../../utilities/contacts-api';
 
 function ContactCard({contact, deleteContact, getAContact, mutuals}){
 
@@ -18,7 +17,6 @@ function ContactCard({contact, deleteContact, getAContact, mutuals}){
           {
             contact.mutuals ? contact.mutuals.map((mutual, idx) => (
               <p key={idx}>{mutual.name}</p>
-              // <p key={idx}>{mutualId}</p>
             )) : "doesnt exist"
           }       
         </div>
