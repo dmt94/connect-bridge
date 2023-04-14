@@ -26,7 +26,7 @@ function ContactCard({contact, deleteContact, getAContact, mutuals}){
         <div className="contact-img-canvas">
           <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
         </div>
-        <Link to="" className='more-links'>View More</Link>
+        <Link to={`/contacts/${contact._id}`} className='more-links' state={contact}>View More</Link>
         <button className='delete-btn' onClick={() => deleteContact(contact._id) }>Delete</button>
       </div>
     </div>
