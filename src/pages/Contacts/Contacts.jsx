@@ -21,11 +21,6 @@ export default function NavBar({ user, setUser }) {
     setContacts(updatedContact);
   }
 
-  async function getAContact(id) {
-    const receivedContact = await contactsAPI.getContact(id);
-    return receivedContact;
-  }
-
   return (
     <div className='contacts-div'>
       <h1>Contacts</h1>
@@ -33,7 +28,7 @@ export default function NavBar({ user, setUser }) {
       <div className='contact-grid'>
         {
           contacts.map((contact, idx) => (
-            <ContactCard key={idx} contact={ contact } deleteContact={ deleteContact } getAContact={getAContact} />
+            <ContactCard key={idx} contact={ contact } deleteContact={ deleteContact } />
           ))
         }
 

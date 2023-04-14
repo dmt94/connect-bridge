@@ -1,7 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ContactCard.css';
+import * as contactsAPI from '../../utilities/contacts-api';
 
-const ContactCard = ({contact, deleteContact, getAContact}) => {
+function ContactCard({contact, deleteContact}){
+
+  // async function getAContact(id) {
+  //   const receivedContact = await contactsAPI.getContact(id);
+  //   console.log("RECEIVED CONTACT", receivedContact);
+  //   }
+
+
   return ( 
     <div className="flex-r contact-card">
       <div className="contact-card-info">
@@ -11,10 +20,7 @@ const ContactCard = ({contact, deleteContact, getAContact}) => {
         <p>{contact.position}</p>
         <p>{contact.email}</p>
         <div>
-          <span>Mutuals:</span>
-        {contact.mutuals.map((mutual, idx) => (
-          <p key={idx}>{getAContact(mutual).name}</p>
-        ) )}
+          <span>Mutuals:</span>       
         </div>
 
       </div>

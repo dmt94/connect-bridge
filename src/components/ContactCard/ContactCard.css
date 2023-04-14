@@ -26,11 +26,11 @@
 
 .contact-card-info {
   max-width: 50%;
-  padding: 2vmin;
+  padding: 1vmin;
 }
 
 .contact-card-info div {
-  margin: 1vmin auto;
+  margin: 2vmin;
 }
 
 .contact-card-info * {

@@ -10,6 +10,7 @@ module.exports = {
 async function create(req, res) {
   req.body.user = req.user;
   const application = await Contact.create(req.body);
+  console.log("application", application);
   res.json(application);
 }
 
@@ -26,7 +27,6 @@ async function deleteContact(req, res) {
 
 async function getContact(req, res) {
   const contact = await Contact.findById(req.params.id);
-  console.log("request", req);
-  console.log("get a contact", contact);
+  // console.log("get a contact", contact);
   res.json(contact);
 }

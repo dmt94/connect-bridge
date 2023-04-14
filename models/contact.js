@@ -60,12 +60,11 @@ const contact = new Schema({
     type: Boolean,
     default: false
   },
-  mutuals: [
-   {
+  mutuals: [ {
       type: Schema.Types.ObjectId,
       ref: 'Contact'
-    }
-  ]
+    }, ]
+  
 }, {
   timestamps: true
 });
