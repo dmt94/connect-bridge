@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as contactsAPI from '../../utilities/contacts-api';
 import { useNavigate } from "react-router-dom";
 
-const ContactForm = () => {
+const ContactForm = ({ contacts }) => {
   const navigate = useNavigate();
 
   const [toggle, setToggle] = useState(false);
@@ -139,9 +139,11 @@ const ContactForm = () => {
           <div className="select-contacts-div">
               <label htmlFor="mutuals">Mutual Contacts:</label>
               <select name="mutuals" onChange={handleChange} multiple className="multiple-select">
-                <option value="Contact 1 ID">Contact 1...</option>
-                <option value="Contact 2 ID">Contact 2...</option>
-                <option value="Contact 3 ID">Contact 3...</option>
+                
+                {contacts.map((contact, idx) => (                  
+                  <option key={idx} value={contact._id}>{contact.name}</option>
+                ))}
+
               </select>
           </div>
           

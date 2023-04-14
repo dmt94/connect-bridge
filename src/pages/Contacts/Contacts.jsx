@@ -21,14 +21,19 @@ export default function NavBar({ user, setUser }) {
     setContacts(updatedContact);
   }
 
+  async function getAContact(id) {
+    const receivedContact = await contactsAPI.getContact(id);
+    return receivedContact;
+  }
+
   return (
     <div className='contacts-div'>
       <h1>Contacts</h1>
-      <Link to='/contacts/new' className=''>Add New Contact</Link>
+      <Link to='/contacts/new' className='' state={ contacts } >Add New Contact</Link>
       <div className='contact-grid'>
         {
           contacts.map((contact, idx) => (
-            <ContactCard key={idx} contact={ contact } deleteContact={ deleteContact } />
+            <ContactCard key={idx} contact={ contact } deleteContact={ deleteContact } getAContact={getAContact} />
           ))
         }
 

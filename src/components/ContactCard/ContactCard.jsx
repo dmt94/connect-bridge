@@ -1,16 +1,22 @@
 import { Link } from 'react-router-dom';
 import './ContactCard.css';
 
-const ContactCard = ({contact, deleteContact}) => {
+const ContactCard = ({contact, deleteContact, getAContact}) => {
   return ( 
     <div className="flex-r contact-card">
-      <div className="flex-c contact-card-info">
+      <div className="contact-card-info">
         <h3>{contact.relationship}</h3>
         <h4>{contact.name}</h4>
         <p>{contact.company}</p>
         <p>{contact.position}</p>
         <p>{contact.email}</p>
-        
+        <div>
+          <span>Mutuals:</span>
+        {contact.mutuals.map((mutual, idx) => (
+          <p key={idx}>{getAContact(mutual).name}</p>
+        ) )}
+        </div>
+
       </div>
       <div className="flex-c contact-card-rightc">
         <div className="contact-img-canvas">

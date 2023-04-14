@@ -26,5 +26,7 @@ async function deleteContact(req, res) {
 
 async function getContact(req, res) {
   const contact = await Contact.findById(req.params.id);
+  console.log("request", req);
+  console.log("get a contact", contact);
   res.json(contact);
 }
