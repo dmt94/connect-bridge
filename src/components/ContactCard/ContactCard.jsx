@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 import './ContactCard.css';
 import * as contactsAPI from '../../utilities/contacts-api';
 
-function ContactCard({contact, deleteContact}){
-
-  // async function getAContact(id) {
-  //   const receivedContact = await contactsAPI.getContact(id);
-  //   console.log("RECEIVED CONTACT", receivedContact);
-  //   }
-
+function ContactCard({contact, deleteContact, getAContact, mutuals}){
 
   return ( 
     <div className="flex-r contact-card">
@@ -20,7 +14,13 @@ function ContactCard({contact, deleteContact}){
         <p>{contact.position}</p>
         <p>{contact.email}</p>
         <div>
-          <span>Mutuals:</span>       
+          <span>Mutuals:</span>
+          {
+            contact.mutuals ? contact.mutuals.map((mutual, idx) => (
+              <p key={idx}>{mutual.name}</p>
+              // <p key={idx}>{mutualId}</p>
+            )) : "doesnt exist"
+          }       
         </div>
 
       </div>

@@ -15,7 +15,7 @@ async function create(req, res) {
 }
 
 async function allContacts(req, res) {
-  const contacts = await Contact.find({user: req.user._id});
+  const contacts = await Contact.find({user: req.user._id}).populate('mutuals');
   res.json(contacts);
 }
 
@@ -27,6 +27,7 @@ async function deleteContact(req, res) {
 
 async function getContact(req, res) {
   const contact = await Contact.findById(req.params.id);
-  // console.log("get a contact", contact);
+  console.log("ID of contact", req.params.id)
+  console.log("This is the mutual contact:", contact)
   res.json(contact);
 }
