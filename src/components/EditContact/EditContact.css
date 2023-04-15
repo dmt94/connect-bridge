@@ -2,3 +2,15 @@
   display: flex;
   flex-direction: column;
 }
+
+.mutual-contact-edit {
+  display: flex;
+  flex-direction: row;
+}
+
+.mutual-contact-edit p {
+  margin: 2vmin;
+  background-color: aliceblue;
+  padding: 2vmin;
+  color: black;
+}

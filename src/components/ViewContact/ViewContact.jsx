@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import './ViewContact.css';
 
-const ViewContact = ({contact}) => {
+const ViewContact = ({contact, allContacts}) => {
+  console.log("view contact",contact);
   return ( 
     <div className="main-contact-div">
       <div className="contact-wrapper">
@@ -31,7 +32,7 @@ const ViewContact = ({contact}) => {
         contact.mutuals.map((contact, idx) => (
           contact.mutuals ? 
           <div key={idx} className="mutual-contact">
-            <Link className="mutual-link" to={`/contacts/${contact._id}`} state={contact}>
+            <Link className="mutual-link" to={`/contacts/${contact._id}`} state={{contact, allContacts}}>
               <p>{contact.name}</p>              
             </Link>
           </div>

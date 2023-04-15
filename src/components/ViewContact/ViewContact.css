@@ -29,4 +29,5 @@
 
 .mutual-contact * {
   margin: 0;
+  max-width: fit-content;
 }

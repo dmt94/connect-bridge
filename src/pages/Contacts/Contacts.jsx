@@ -28,7 +28,7 @@ export default function Contacts() {
       <div className='contact-grid'>
         {
           contacts.map((contact, idx) => (
-            <ContactCard key={idx} contact={ contact } deleteContact={ deleteContact }/>            
+            <ContactCard key={idx} contact={ contact } deleteContact={ deleteContact } allContacts={contacts} />            
           ))
         }
 

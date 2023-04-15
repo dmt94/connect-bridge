@@ -4,7 +4,7 @@ import { useState } from "react";
 import './EditContact.css';
 import '../ViewContact/ViewContact.css';
 
-const EditContact = ({ contact }) => {
+const EditContact = ({ contact, allContacts }) => {
 
   const [toggle, setToggle] = useState(false);
 
@@ -101,20 +101,14 @@ const EditContact = ({ contact }) => {
       
       <input type="text" placeholder={contact.email ? contact.email : "Email"} />
       <input type="text" placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
-
-      <div className="mutual-contact-grid">
       <p>Mutual Contacts:</p>
-      {
-        contact.mutuals.map((contact, idx) => (
-          contact.mutuals ? 
-          <div key={idx} className="mutual-contact">
-            <p className="mutual-link" to={`/contacts/${contact._id}`} state={contact}>
-              <p>{contact.name}</p>              
-            </p>
-          </div>
-          : ""
-        ))        
-      }
+      <div className="mutual-contact-edit">      
+      <label htmlFor="mutuals">Mutual Contacts:</label>
+        <select name="mutuals" onChange={ handleChange } multiple className="multiple-select">
+          {allContacts.map((contact, idx) => (                  
+            <option key={idx} value={contact._id}>{contact.name}</option>
+          ))}
+        </select>
       </div>
 
       <label htmlFor="response">Waiting for response? </label>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ContactCard.css';
 
-function ContactCard({contact, deleteContact, getAContact, mutuals}){
+function ContactCard({contact, deleteContact, allContacts}){
 
   return ( 
     <div className="flex-r contact-card">
@@ -21,7 +21,7 @@ function ContactCard({contact, deleteContact, getAContact, mutuals}){
         <div className="contact-img-canvas">
           <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
         </div>
-        <Link to={`/contacts/${contact._id}`} className='more-links' state={contact}>View More</Link>
+        <Link to={`/contacts/${contact._id}`} className='more-links' state={{contact, allContacts}}>View More</Link>
         <button className='delete-btn' onClick={() => deleteContact(contact._id) }>Delete</button>
       </div>
     </div>

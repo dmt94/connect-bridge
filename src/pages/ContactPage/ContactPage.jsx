@@ -8,7 +8,10 @@ import EditContact from "../../components/EditContact/EditContact";
 const ContactPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const contact = location.state;
+  const contactState = location.state;
+  const contact = contactState.contact;
+  const allContacts = contactState.allContacts;
+  console.log("CONTACT", contact);
 
   const [toggleEditBtn, setToggleEditBtn] = useState(true);
 
@@ -31,7 +34,7 @@ const ContactPage = () => {
       <h2>Contact Page</h2>
       <button onClick={goBack} className="btn-light">Go Back</button>
       {
-        toggleEditBtn ? <ViewContact contact={contact} /> : <EditContact contact={contact} />
+        toggleEditBtn ? <ViewContact contact={contact} allContacts={allContacts} /> : <EditContact contact={contact} allContacts={allContacts} />
       }
       <button onClick={(evt) => { handleToggleEditBtn(evt) }}>{ toggleEditBtn ? 'Edit Contact' : 'Cancel Edit'}</button>
       <button onClick={() => { deleteContact(contact._id) }}>Delete Contact</button>
