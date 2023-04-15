@@ -46,6 +46,9 @@ const applicationSchema = new Schema({
     type: String,
     required: true
   },
+  industry: {
+    type: String,
+  },
   companyWebsite: {
     type: String,
   },

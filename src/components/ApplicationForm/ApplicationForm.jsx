@@ -15,14 +15,15 @@ const ApplicationForm = ({ applications }) => {
       type: "Full-time",
       applicationURL: "",
       position: "",
-      environment: "",
+      environment: "In-Office",
       location: "",
+      industry: "",
       company: "",
       companyWebsite: "",
       description: "",
       salary: "",
-      status: "",
-      priority: "",
+      status: "Waiting",
+      priority: false,
       reference: [],
       contacts: []
     }
@@ -75,6 +76,9 @@ const ApplicationForm = ({ applications }) => {
         
           <label htmlFor="applicationUrl">Application URL:</label>
           <input type="text" name="applicationUrl" onChange={handleChange} />
+
+          <label htmlFor="industry">Industry:</label>
+          <input type="text" name="industry" onChange={handleChange} />
 
           <label htmlFor="company">*Company:</label>
           <input type="text" name="company" required onChange={handleChange} />
