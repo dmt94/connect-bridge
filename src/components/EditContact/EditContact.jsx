@@ -27,14 +27,18 @@ const EditContact = ({ contact }) => {
       mutuals: contact.mutuals,
     }
     );
-  
+
   async function handleChange(evt) {
     if (evt.target.type === "file") {
+      setImagePreview(URL.createObjectURL(evt.target.files[0]))
       setcurrentContact({...currentContact, [evt.target.name]: await convertToBase64(evt.target.files[0])})
     } else if (evt.target.name === "mutuals") {
       let value = Array.from(evt.target.selectedOptions, option => option.value);
       setcurrentContact({...currentContact, [evt.target.name]: value})
     } else {
+      if (evt.target.name === "image") {
+        setImagePreview(evt.target.value);
+      }
       setcurrentContact({...currentContact, [evt.target.name]: evt.target.value });
     }
   }
@@ -76,7 +80,14 @@ const EditContact = ({ contact }) => {
       <div className="flex-r about-contact-div">
         <div className="flex-c">
           <input type="text" placeholder={contact.name} />
-          <input type="text" name="relationship" placeholder={contact.relationship ? contact.relationship : "Relationship"} />
+          <label htmlFor="relationship">Relationship with Contact:</label>
+          <select name="relationship" onChange={ handleChange }>
+            <option value="Professional" defaultChecked>Professional</option>
+            <option value="Colleague">Colleague</option>
+            <option value="Friend">Friend</option>
+            <option value="Close Friend">Close Friend</option>
+            <option value="Family">Family</option>
+          </select>
           <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
           {
             toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
