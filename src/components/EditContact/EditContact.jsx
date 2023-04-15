@@ -1,13 +1,65 @@
 import * as contactsAPI from '../../utilities/contacts-api';
 import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 import './EditContact.css';
 import '../ViewContact/ViewContact.css';
 
 const EditContact = ({ contact }) => {
 
+  const [toggle, setToggle] = useState(false);
+
+  const [imagePreview, setImagePreview] = useState(contact.image);
+
+  const [currentContact, setcurrentContact] = useState(
+    {
+      name: contact.name,
+      image: contact.image,
+      position: contact.position,
+      company: contact.company,
+      about: contact.about,
+      email: contact.email,
+      phoneNumber: contact.phoneNumber,
+      linkedin: contact.linkedin,
+      url: contact.url,
+      response: contact.response,
+      relationship: contact.relationship,
+      starContact: contact.starContact,
+      mutuals: contact.mutuals,
+    }
+    );
+  
+  async function handleChange(evt) {
+    if (evt.target.type === "file") {
+      setcurrentContact({...currentContact, [evt.target.name]: await convertToBase64(evt.target.files[0])})
+    } else if (evt.target.name === "mutuals") {
+      let value = Array.from(evt.target.selectedOptions, option => option.value);
+      setcurrentContact({...currentContact, [evt.target.name]: value})
+    } else {
+      setcurrentContact({...currentContact, [evt.target.name]: evt.target.value });
+    }
+  }
+
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    })
+  }
+
   async function updateContact(id) {
     const updatedContactDetails = await contactsAPI.updateAContact(id);
     // setCurrentContact(updatedContactDetails);
+  }
+
+  function handleContactImageButton(evt) {
+    evt.preventDefault();
+    setToggle(!toggle);
   }
 
   async function handleUpdate(id) {
@@ -25,7 +77,11 @@ const EditContact = ({ contact }) => {
         <div className="flex-c">
           <input type="text" placeholder={contact.name} />
           <input type="text" name="relationship" placeholder={contact.relationship ? contact.relationship : "Relationship"} />
-          <img src={contact.image} alt="" className="contact-profile-img" />
+          <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
+          {
+            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
+          }
+          <img src={imagePreview} alt="" className="contact-profile-img" />
           <textarea name="about" id="" cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
         </div>
         <div>
