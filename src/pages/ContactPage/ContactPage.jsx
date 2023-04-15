@@ -30,10 +30,10 @@ const ContactPage = () => {
     <>
       <h2>Contact Page</h2>
       <button onClick={goBack} className="btn-light">Go Back</button>
-      <ViewContact contact={contact} />
-      <EditContact contact={contact} />
-
-      <button onClick={() => { handleToggleEditBtn() }}>Edit Contact</button>
+      {
+        toggleEditBtn ? <ViewContact contact={contact} /> : <EditContact contact={contact} />
+      }
+      <button onClick={(evt) => { handleToggleEditBtn(evt) }}>{ toggleEditBtn ? 'Edit Contact' : 'Cancel Edit'}</button>
       <button onClick={() => { deleteContact(contact._id) }}>Delete Contact</button>
     </>
    );
