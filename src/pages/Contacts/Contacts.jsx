@@ -21,7 +21,6 @@ export default function Contacts() {
   async function deleteContact(id) {
     const updatedContact = await contactsAPI.deleteAContact(id);
     setContacts(updatedContact);
-    navigate(0);
   }
 
   return (

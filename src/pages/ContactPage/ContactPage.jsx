@@ -3,16 +3,30 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import * as contactsAPI from '../../utilities/contacts-api';
 import './ContactPage.css';
 import ViewContact from "../../components/ViewContact/ViewContact";
-import EditContact from "../../components/EditContact/EditContact";
 
 const ContactPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const contactState = location.state;
-  const contact = contactState.contact;
-  const allContacts = contactState.allContacts;
+  const state = location.state;
+  const contactId = state.contactId;
+  const [allContacts, setAllContacts] = useState([]);
+  const [contact, setContact] = useState([]);
+ 
+  useEffect(function() {
+    async function getContacts() {
+      const contactsReceived = await contactsAPI.getAllContacts();
+      setAllContacts(contactsReceived);
+    }
+    getContacts();
+  }, []);
 
-  const [toggleEditBtn, setToggleEditBtn] = useState(true);
+  useEffect(function() {
+    async function getAContact(id) {
+      const contactsReceived = await contactsAPI.getContact(id);
+      setContact(contactsReceived);
+    }
+    getAContact(contactId);
+  }, [contactId]);
 
   const goBack = () => {
     navigate(-1);
@@ -23,17 +37,11 @@ const ContactPage = () => {
     navigate("/contacts")
   }
 
-  function handleToggleEditBtn(evt) {
-    evt.preventDefault();
-    setToggleEditBtn(!toggleEditBtn);
-  }
-
   return ( 
     <>
       <h2>Contact Page</h2>
       <button onClick={goBack} className="btn-light">Go Back</button>
       <ViewContact contact={contact} allContacts={allContacts} />
-      {/* <EditContact contact={contact} allContacts={allContacts} /> */}
       
       <Link to={`/contacts/${contact._id}/edit`} state={{contact, allContacts}}>Edit Contact</Link>
       <button onClick={() => { deleteContact(contact._id) }}>Delete Contact</button>

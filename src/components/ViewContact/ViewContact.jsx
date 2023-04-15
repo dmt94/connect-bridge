@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import './ViewContact.css';
 
 const ViewContact = ({contact, allContacts}) => {
-  
   return ( 
     <div className="main-contact-div">
       <div className="contact-wrapper">
@@ -29,15 +28,14 @@ const ViewContact = ({contact, allContacts}) => {
       <div className="mutual-contact-grid">
       <p>Mutual Contacts:</p>
       {
+        contact.mutuals ? 
         contact.mutuals.map((contact, idx) => (
-          contact.mutuals ? 
           <div key={idx} className="mutual-contact">
-            <Link className="mutual-link" to={`/contacts/${contact._id}`} state={{contact, allContacts}}>
+            <Link className="mutual-link" to={`/contacts/${contact._id}`} state={{contactId: contact._id}}>
               <p>{contact.name}</p>              
             </Link>
           </div>
-          : ""
-        ))        
+        )) : ""        
       }
       </div>
       </div>

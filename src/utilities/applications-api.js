@@ -14,11 +14,11 @@ export async function getApplication(id) {
 }
 
 export async function deleteAnApplication(id) {
-  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+  return sendRequest(`${BASE_URL}/delete/${id}`, 'DELETE');
 }
 
 export async function updateApplication(id, payload) {
-  return sendRequest(`${BASE_URL}/${id}`, 'PUT');
+  return sendRequest(`${BASE_URL}/update/${id}`, 'PUT');
 }
 
 
