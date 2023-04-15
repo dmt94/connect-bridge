@@ -17,6 +17,6 @@ export async function deleteAContact(id) {
   return sendRequest(`${BASE_URL}/delete/${id}`, 'DELETE');
 }
 
-export async function updateAContact(id) {
-  return sendRequest(`${BASE_URL}/update/${id}`, 'UPDATE');
+export async function updateAContact(id, payload) {
+  return sendRequest(`${BASE_URL}/update/${id}`, 'PUT', payload);
 }

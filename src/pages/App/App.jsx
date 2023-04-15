@@ -10,6 +10,7 @@ import Contacts from '../Contacts/Contacts'
 import NewApplication from '../NewApplication/NewApplication';
 import NewContact from '../NewContact/NewContact';
 import ContactPage from '../ContactPage/ContactPage';
+import EditContact from '../../components/EditContact/EditContact';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/contacts/:id" element={<ContactPage />} />
           <Route path="/contacts/new" element={<NewContact />} />
+          <Route path="/contacts/:id/edit" element={<EditContact />} />
           <Route path="/" element={<Dashboard user={user} setUser={setUser} />} />
         </Routes>
       </>

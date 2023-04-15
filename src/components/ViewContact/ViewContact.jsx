@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './ViewContact.css';
 
 const ViewContact = ({contact, allContacts}) => {
-  console.log("view contact",contact);
+  
   return ( 
     <div className="main-contact-div">
       <div className="contact-wrapper">

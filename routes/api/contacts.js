@@ -8,7 +8,7 @@ router.get('/', contactsCtrl.allContacts);
 
 router.get('/:id', contactsCtrl.view);
 
-router.get('/update/:id', contactsCtrl.update);
+router.put('/update/:id', contactsCtrl.update);
 
 router.delete('/delete/:id', contactsCtrl.delete);
 

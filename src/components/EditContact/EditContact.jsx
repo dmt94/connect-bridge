@@ -3,10 +3,18 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import './EditContact.css';
 import '../ViewContact/ViewContact.css';
+import ViewContact from '../ViewContact/ViewContact';
 
-const EditContact = ({ contact, allContacts }) => {
+const EditContact = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const contactState = location.state;
+  const contact = contactState.contact;
+  const allContacts = contactState.allContacts;
 
   const [toggle, setToggle] = useState(false);
+
+  const [toggleViewEdit, setToggleViewEdit] = useState(false);
 
   const [imagePreview, setImagePreview] = useState(contact.image);
 
@@ -57,9 +65,14 @@ const EditContact = ({ contact, allContacts }) => {
     })
   }
 
-  async function updateContact(id) {
-    const updatedContactDetails = await contactsAPI.updateAContact(id);
-    // setCurrentContact(updatedContactDetails);
+  async function updateContact(id, payload) {
+    try {
+      const updatedContactDetails = await contactsAPI.updateAContact(id, payload);
+      setcurrentContact(updatedContactDetails);
+
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function handleContactImageButton(evt) {
@@ -67,17 +80,28 @@ const EditContact = ({ contact, allContacts }) => {
     setToggle(!toggle);
   }
 
-  async function handleUpdate(id) {
-    updateContact(id);
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    const payload = currentContact;
+    console.log("payload", payload);
+    updateContact(contact._id, payload);
+    setToggleViewEdit(!toggleViewEdit);
   }
 
   return ( 
     <div className="main-contact-div">
-      <form action="" className='edit-form'>
+      {toggleViewEdit ? (
+        <>
+          <h4>Contact Preview</h4>
+          <Link to={`/contacts`} state={{contact, allContacts}}>Back to Contacts</Link>
+          <ViewContact contact={currentContact} allContacts={allContacts}/>
+        </>
+        ) : 
+      <form action="" className='edit-form' onSubmit={ handleSubmit }>
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
         <div className="flex-c">
-          <input type="text" placeholder={contact.name} />
+          <input type="text" name="name" placeholder={contact.name} onChange={ handleChange } />
           <label htmlFor="relationship">Relationship with Contact:</label>
           <select name="relationship" onChange={ handleChange }>
             <option value="Professional" defaultChecked>Professional</option>
@@ -91,16 +115,16 @@ const EditContact = ({ contact, allContacts }) => {
             toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
           }
           <img src={imagePreview} alt="" className="contact-profile-img" />
-          <textarea name="about" id="" cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
+          <textarea name="about" onChange={ handleChange } cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
         </div>
         <div>
-          <input type="text" name="url" placeholder={contact.url ? contact.url : "Website"} />
-          <input type="text" name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Website"} />
+          <input type="text" onChange={ handleChange } name="url" placeholder={contact.url ? contact.url : "Website"} />
+          <input type="text" onChange={ handleChange } name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Website"} />
         </div>
       </div>
       
-      <input type="text" placeholder={contact.email ? contact.email : "Email"} />
-      <input type="text" placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
+      <input type="text" onChange={ handleChange } placeholder={contact.email ? contact.email : "Email"} />
+      <input type="text" onChange={ handleChange } placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
       <p>Mutual Contacts:</p>
       <div className="mutual-contact-edit">      
       <label htmlFor="mutuals">Mutual Contacts:</label>
@@ -150,10 +174,11 @@ const EditContact = ({ contact, allContacts }) => {
             </div>
           </div>
           <div className="flex-r">
-            <button className="edit-btn">Complete Edit</button>
+          <button className="edit-btn" >Complete Edit</button>
           </div>
       </div>
       </form>
+      }
     </div> 
    );
 }

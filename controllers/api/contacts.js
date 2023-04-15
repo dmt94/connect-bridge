@@ -16,8 +16,15 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
-  const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('mutuals');
-  res.json(updatedContact);
+  try {
+    console.log("ID",req.params.id)
+    const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('mutuals');
+    console.log(updatedContact);
+    res.json(updatedContact);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 }
 async function allContacts(req, res) {
   const contacts = await Contact.find({user: req.user._id}).populate('mutuals');
