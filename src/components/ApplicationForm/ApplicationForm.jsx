@@ -49,16 +49,26 @@ const ApplicationForm = ({ applications }) => {
     <div className="application-form">
       <form action="" className="" onSubmit={ handleSubmit }>
           <label htmlFor="date">Date:</label>
-          <input type="date" name="date" id="" value="" onChange={handleChange}/>
+          <input type="date" name="date" onChange={handleChange}/>
 
           <label htmlFor="role">*Role:</label>
           <input type="text" name="role" required onChange={handleChange} />
 
           <label htmlFor="type">Type:</label>
-          <input type="text" name="type" onChange={handleChange} />
+          <select name="type" onChange={ handleChange }>
+            <option value="Full-Time" defaultChecked>Full-Time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Internship">Internship</option>
+            <option value="Apprenticeship">Apprenticeship</option>
+            <option value="Volunteer">Volunteer</option>
+          </select>
 
           <label htmlFor="environment">Environment:</label>
-          <input type="text" name="environment" onChange={handleChange} />
+          <select name="environment" onChange={handleChange}>
+            <option value="In-office" defaultChecked>In-office</option>
+            <option value="In-office">Remote</option>
+            <option value="In-office">Hybrid</option>
+          </select>
 
           <label htmlFor="location">Location:</label>
           <input type="text" name="location" onChange={handleChange} />
@@ -105,7 +115,9 @@ const ApplicationForm = ({ applications }) => {
           <div className="select-contacts-div">
               <label htmlFor="contacts">Contacts Associated with Application:</label>
               <select name="contacts" onChange={handleChange} multiple className="multiple-select">
-                <option value="">Contact 1...</option>
+                {contacts.map((contact, idx) => (                  
+                    <option key={idx} value={contact._id}>{contact.name}</option>
+                  ))}
               </select>
           </div>
 
@@ -115,7 +127,10 @@ const ApplicationForm = ({ applications }) => {
           <div className="select-contacts-div">
               <label htmlFor="reference">Possible References:</label>
               <select name="reference" onChange={handleChange} multiple className="multiple-select">
-                <option value="">Contact 1...</option>
+                {contacts.map((contact, idx) => (                  
+                  <option key={idx} value={contact._id}>{contact.name}</option>
+                ))}
+
               </select>
           </div>
           
