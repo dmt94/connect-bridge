@@ -1,10 +1,12 @@
-import "./ApplicationForm.css";
 import { useState } from "react";
 import * as applicationsAPI from '../../utilities/applications-api';
 import { useNavigate } from "react-router-dom";
+import "./ApplicationForm.css";
 
-const ApplicationForm = () => {
+const ApplicationForm = ({ applications }) => {
+
   const navigate = useNavigate();
+
   const [application, setApplication] = useState(
     {
       text: ""

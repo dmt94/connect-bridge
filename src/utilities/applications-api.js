@@ -13,7 +13,7 @@ export async function getApplication(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
 
-export async function deleteApplication(id) {
+export async function deleteAnApplication(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 

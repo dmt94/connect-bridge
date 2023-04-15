@@ -1,7 +1,7 @@
-import "./ContactForm.css";
 import { useState } from "react";
 import * as contactsAPI from '../../utilities/contacts-api';
 import { useNavigate } from "react-router-dom";
+import "./ContactForm.css";
 
 const ContactForm = ({ contacts }) => {
   const navigate = useNavigate();
