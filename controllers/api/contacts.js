@@ -17,7 +17,6 @@ async function create(req, res) {
 
 async function update(req, res) {
   try {
-    console.log("ID",req.params.id)
     const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('mutuals');
     console.log(updatedContact);
     res.json(updatedContact);

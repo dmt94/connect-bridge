@@ -4,13 +4,25 @@ module.exports = {
   create,
   allApplications,
   delete: deleteApplication,
-  view: getApplication
+  view: getApplication,
+  update
 }
 
 async function create(req, res) {
   req.body.user = req.user;
   const application = await Application.create(req.body);
   res.json(application);
+}
+
+async function update(req, res) {
+  try {
+    const updatedApplication = await Application.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('contacts');
+    console.log(updatedApplication);
+    res.json(updatedApplication);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 }
 
 async function allApplications(req, res) {

@@ -17,4 +17,8 @@ export async function deleteApplication(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
+export async function updateApplication(id, payload) {
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT');
+}
+
 

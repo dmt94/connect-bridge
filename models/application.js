@@ -71,7 +71,11 @@ const applicationSchema = new Schema({
     type: Boolean,
     default: false
   },
-  contact: [
+  haveReference: {
+    type: Boolean,
+    default: false
+  },
+  contacts: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Contact'
