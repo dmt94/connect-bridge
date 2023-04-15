@@ -22,6 +22,7 @@ const EditContact = ({ contact }) => {
       linkedin: contact.linkedin,
       url: contact.url,
       response: contact.response,
+      reference: contact.reference,
       relationship: contact.relationship,
       starContact: contact.starContact,
       mutuals: contact.mutuals,
@@ -73,9 +74,6 @@ const EditContact = ({ contact }) => {
   return ( 
     <div className="main-contact-div">
       <form action="" className='edit-form'>
-      <div className="flex-r">
-        <button className="edit-btn">Complete Edit</button>
-      </div>
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
         <div className="flex-c">
@@ -103,10 +101,7 @@ const EditContact = ({ contact }) => {
       
       <input type="text" placeholder={contact.email ? contact.email : "Email"} />
       <input type="text" placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
- 
-      <p>{contact.about}</p>
-      <p>{contact.response ? "Waiting for response" : ""}</p>
-      <p>{contact.starContact ? "Star Contact" : ""}</p>
+
       <div className="mutual-contact-grid">
       <p>Mutual Contacts:</p>
       {
@@ -121,6 +116,48 @@ const EditContact = ({ contact }) => {
         ))        
       }
       </div>
+
+      <label htmlFor="response">Waiting for response? </label>
+          <div className="flex-r">
+            <div className="radio-div">
+              <input type="radio" name="response" value={true} onChange={ handleChange } />
+              <label htmlFor="yes">Yes</label>
+            </div>
+
+            <div className="radio-div">
+              <input type="radio" name="response" value={false} checked onChange={ handleChange } />
+              <label htmlFor="no">No</label>
+            </div>
+          </div>
+
+          <label htmlFor="starContact">Star Contact? </label>
+          <div className="flex-r">
+            <div className="radio-div">
+              <input type="radio" name="starContact" value={true} onChange={ handleChange } />
+              <label htmlFor="yes">Yes</label>
+            </div>
+
+            <div className="radio-div">
+              <input type="radio" name="starContact" value={false} checked onChange={ handleChange } />
+              <label htmlFor="no">No</label>
+            </div>
+          </div>
+
+          <label htmlFor="reference">A reference? </label>
+          <div className="flex-r">
+            <div className="radio-div">
+              <input type="radio" name="reference" value={true} onChange={ handleChange } />
+              <label htmlFor="yes">Yes</label>
+            </div>
+
+            <div className="radio-div">
+              <input type="radio" name="reference" value={false} checked onChange={ handleChange } />
+              <label htmlFor="no">No</label>
+            </div>
+          </div>
+          <div className="flex-r">
+            <button className="edit-btn">Complete Edit</button>
+          </div>
       </div>
       </form>
     </div> 
