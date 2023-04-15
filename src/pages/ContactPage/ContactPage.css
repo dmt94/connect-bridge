@@ -13,6 +13,7 @@
   width: fit-content;
   padding: 1vmin;
 }
+
 .mutual-link p:hover {
   color: rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.226);

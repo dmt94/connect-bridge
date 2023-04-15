@@ -123,7 +123,7 @@ input:focus {
 button, a.button {
   margin: 1vmin;
   color: var(--white);
-  background-color: rgba(255, 0, 0, 0);
+  background-color: rgba(174, 150, 150, 0.491);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
@@ -132,6 +132,7 @@ button, a.button {
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
+  padding: 1vmin;
 }
 
 button.btn-sm {

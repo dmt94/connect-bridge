@@ -4,7 +4,8 @@ module.exports = {
   create,
   allContacts,
   delete: deleteContact,
-  view: getContact
+  view: getContact,
+  update
 }
 
 async function create(req, res) {
@@ -14,10 +15,16 @@ async function create(req, res) {
   res.json(application);
 }
 
+async function update(req, res) {
+  const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('mutuals');
+  res.json(updatedContact);
+}
 async function allContacts(req, res) {
   const contacts = await Contact.find({user: req.user._id}).populate('mutuals');
   res.json(contacts);
 }
+
+
 
 async function deleteContact(req, res) {
   await Contact.findByIdAndDelete(req.params.id);

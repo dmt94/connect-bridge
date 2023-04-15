@@ -1,0 +1,32 @@
+.main-contact-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.2);
+  margin: 4vmin;
+}
+
+.contact-wrapper {
+  align-self: center;
+  background-color: rgb(62, 59, 54);
+  padding: 3vmin;
+}
+
+.mutual-contact-grid {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 255, 255, 0.19);
+
+}
+
+.mutual-contact {
+  display: flex;
+  align-items: center;
+  max-width: fit-content;
+  padding: 1vmin;
+  border-radius: 10px;
+}
+
+.mutual-contact * {
+  margin: 0;
+}

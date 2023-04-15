@@ -1,53 +1,40 @@
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
+import * as contactsAPI from '../../utilities/contacts-api';
 import './ContactPage.css';
+import ViewContact from "../../components/ViewContact/ViewContact";
+import EditContact from "../../components/EditContact/EditContact";
 
 const ContactPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const contact = location.state;
 
+  const [toggleEditBtn, setToggleEditBtn] = useState(true);
+
   const goBack = () => {
     navigate(-1);
+  }
+
+  async function deleteContact(id) {
+    await contactsAPI.deleteAContact(id);
+    navigate("/contacts")
+  }
+
+  function handleToggleEditBtn(evt) {
+    evt.preventDefault();
+    setToggleEditBtn(!toggleEditBtn);
   }
 
   return ( 
     <>
       <h2>Contact Page</h2>
       <button onClick={goBack} className="btn-light">Go Back</button>
-      <div className="flex-r about-contact-div">
-        <div>
-          <p>{contact.relationship}</p>
-          <img src={contact.image} alt="" className="contact-profile-img" />
-        </div>
-        <div>
-          {
-            contact.url ? <a href={`${contact.url}`} target="_blank" rel="noreferrer">Website</a> : ""
-          }
-          {
-            contact.linkedin ? <a href={`${contact.linkedin}`} target="_blank" rel="noreferrer">Linkedin</a> : ""
-          }
-        </div>
-      </div>
-      <h4>{contact.name}</h4>
-      <p>{contact.email}</p>
-      <p>{contact.phoneNumber}</p>
-      <p>{contact.about}</p>
-      <p>{contact.response ? "Waiting for response" : ""}</p>
-      <p>{contact.starContact ? "Star Contact" : ""}</p>
-      <p>Mutual Contacts:</p>
-      <ul>
-      {
-        contact.mutuals.map((contact, idx) => (
-          contact.mutuals ? 
-          <li key={idx}>
-            <Link className="mutual-link" to={`/contacts/${contact._id}`} state={contact}>
-              <p>{contact.name}</p>
-            </Link>
-            <p>Your {contact.relationship}</p>
-          </li> : ""
-        ))
-      }
-      </ul>
+      <ViewContact contact={contact} />
+      <EditContact contact={contact} />
+
+      <button onClick={() => { handleToggleEditBtn() }}>Edit Contact</button>
+      <button onClick={() => { deleteContact(contact._id) }}>Delete Contact</button>
     </>
    );
 }
