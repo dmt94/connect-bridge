@@ -16,27 +16,27 @@ const EditContact = ({ contact }) => {
 
   return ( 
     <div className="main-contact-div">
+      <form action="" className='edit-form'>
       <div className="flex-r">
         <button className="edit-btn">Complete Edit</button>
       </div>
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
-        <div>
-          <p>{contact.relationship}</p>
+        <div className="flex-c">
+          <input type="text" placeholder={contact.name} />
+          <input type="text" name="relationship" placeholder={contact.relationship ? contact.relationship : "Relationship"} />
           <img src={contact.image} alt="" className="contact-profile-img" />
+          <textarea name="about" id="" cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
         </div>
         <div>
-          {
-            contact.url ? <p href={`${contact.url}`} target="_blank" rel="noreferrer">Website</p> : ""
-          }
-          {
-            contact.linkedin ? <p href={`${contact.linkedin}`} target="_blank" rel="noreferrer">Linkedin</p> : ""
-          }
+          <input type="text" name="url" placeholder={contact.url ? contact.url : "Website"} />
+          <input type="text" name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Website"} />
         </div>
       </div>
-      <h4>{contact.name}</h4>
-      <p>{contact.email}</p>
-      <p>{contact.phoneNumber}</p>
+      
+      <input type="text" placeholder={contact.email ? contact.email : "Email"} />
+      <input type="text" placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
+ 
       <p>{contact.about}</p>
       <p>{contact.response ? "Waiting for response" : ""}</p>
       <p>{contact.starContact ? "Star Contact" : ""}</p>
@@ -55,6 +55,7 @@ const EditContact = ({ contact }) => {
       }
       </div>
       </div>
+      </form>
     </div> 
    );
 }
