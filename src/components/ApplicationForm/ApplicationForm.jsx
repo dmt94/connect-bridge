@@ -1,11 +1,13 @@
 import { useState } from "react";
 import * as applicationsAPI from '../../utilities/applications-api';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./ApplicationForm.css";
 
 const ApplicationForm = ({ applications }) => {
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const contacts = location.state;
 
   const [application, setApplication] = useState(
     {
