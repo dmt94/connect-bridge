@@ -25,9 +25,8 @@ const applicationSchema = new Schema({
   },
   applicationUrl: { 
     type: String, 
-    required: true 
   },
-  position: {
+  role: {
     type: String,
     required: true
   },
@@ -71,10 +70,12 @@ const applicationSchema = new Schema({
     type: Boolean,
     default: false
   },
-  haveReference: {
-    type: Boolean,
-    default: false
-  },
+  reference: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Contact'
+    }
+  ],
   contacts: [
     {
       type: Schema.Types.ObjectId,
