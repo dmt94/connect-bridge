@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as contactsAPI from '../../utilities/contacts-api';
 import './Contacts.css';
 import ContactCard from '../../components/ContactCard/ContactCard';
@@ -7,6 +7,8 @@ import ContactCard from '../../components/ContactCard/ContactCard';
 export default function Contacts() {
 
   const [contacts, setContacts] = useState([]);
+
+  const navigate = useNavigate();
  
   useEffect(function() {
     async function getContacts() {
@@ -19,6 +21,7 @@ export default function Contacts() {
   async function deleteContact(id) {
     const updatedContact = await contactsAPI.deleteAContact(id);
     setContacts(updatedContact);
+    navigate(0);
   }
 
   return (
