@@ -1,23 +1,21 @@
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
 import * as applicationsAPI from '../../utilities/applications-api';
 import ViewApplication from "../../components/ViewApplication/ViewApplication";
 import './ApplicationPage.css';
 
 const ApplicationPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const state = location.state;
-  const applicationId = state.applicationId;
+  const { id } = useParams();
   const [application, setApplication] = useState([]);
  
   useEffect(function() {
-    async function getApplication(id) {
+    async function getApplication() {
       const appReceived = await applicationsAPI.getApplication(id);
       setApplication(appReceived);
     }
-    getApplication(applicationId);
-  }, [applicationId]);
+    getApplication();
+  }, [id]);
 
   const goBack = () => {
     navigate(-1);
@@ -32,8 +30,8 @@ const ApplicationPage = () => {
       <h3>Application Page!</h3>
       <ViewApplication application={application} />
       
-      <Link to={`/applications/${application._id}/edit`} state={{application}}>Edit Application</Link>
-      <button onClick={() => { deleteApplication(application._id) }}>Delete Contact</button>
+      {/* <Link to={`/applications/${application._id}/edit`} state={{application}}>Edit Application</Link>
+      <button onClick={() => { deleteApplication(application._id) }}>Delete Contact</button> */}
     </div>
    );
 }

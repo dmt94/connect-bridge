@@ -10,9 +10,12 @@ module.exports = {
 }
 
 async function create(req, res) {
+  console.log(req);
   req.body.user = req.user;
   const task = await Task.create(req.body);
   res.json(task);
+
+  // const updatedApplication = await Application.findByIdAndUpdate(req.params.applicationId)
 }
 
 async function update(req, res) {

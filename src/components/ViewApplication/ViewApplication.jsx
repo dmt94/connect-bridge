@@ -40,10 +40,12 @@ const ViewApplication = ({ application }) => {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    if (task) {
-      await tasksAPI.createTask(task);
-    }
-    setTask({[evt.target.name]: evt.target.value});
+    console.log(application);
+    console.log("HIIII");
+    // if (task) {
+    //   await tasksAPI.createTask(application._id, task);
+    // }
+    // setTask({[evt.target.name]: evt.target.value});
   }
 
   return ( 

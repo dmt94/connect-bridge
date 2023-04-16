@@ -11,7 +11,7 @@ const ApplicationCard = ({application, deleteApplication, contacts}) => {
       <h1>{application.role}</h1>
       <h3>{application.company}</h3>
       <div className="flex-r app-card-bottom-row">
-        <Link to={`/applications/${application._id}`} state={{applicationId: application._id}}>View Application</Link>
+        <Link to={`/applications/${application._id}`}>View Application</Link>
         <button onClick={() => {deleteApplication(application._id)}}>Delete</button>
       </div>
     </div>
