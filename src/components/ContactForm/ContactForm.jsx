@@ -20,6 +20,7 @@ const ContactForm = ({ contacts }) => {
       linkedin: "",
       url: "",
       response: false,
+      reference: false,
       relationship: "Professional",
       starContact: false,
       mutuals: [],
@@ -70,17 +71,17 @@ const ContactForm = ({ contacts }) => {
           <label htmlFor="name">*Name:</label>
           <input type="text" name="name" required onChange={handleChange} />
 
-          <label htmlFor="image">Image:</label>
+          <label htmlFor="image">Profile Photo:</label>
           <span>Set contact's photo</span>
           <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
           {
             toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
           }
         
-          <label htmlFor="company">Company:</label>
+          <label htmlFor="company">Organization:</label>
           <input type="text" name="company" onChange={ handleChange } />
 
-          <label htmlFor="position">Position:</label>
+          <label htmlFor="position">Occupation:</label>
           <input type="text" name="position" onChange={ handleChange } />
 
           <label htmlFor="email">Email:</label>

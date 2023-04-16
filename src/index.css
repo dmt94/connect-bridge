@@ -170,3 +170,7 @@ a {
 .btn-light:hover {
   opacity: 0.8;
 }
+
+label {
+  color: white;
+}

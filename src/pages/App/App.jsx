@@ -11,6 +11,7 @@ import NewApplication from '../NewApplication/NewApplication';
 import NewContact from '../NewContact/NewContact';
 import ContactPage from '../ContactPage/ContactPage';
 import EditContact from '../../components/EditContact/EditContact';
+import ApplicationPage from '../ApplicationPage/ApplicationPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -22,6 +23,7 @@ export default function App() {
         <Routes>
           <Route path="/applications" element={<Applications />} />
           <Route path="/applications/new" element={<NewApplication />} />
+          <Route path="/applications/:id" element={<ApplicationPage />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/contacts/:id" element={<ContactPage />} />
           <Route path="/contacts/new" element={<NewContact />} />

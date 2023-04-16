@@ -41,7 +41,7 @@ export default function Applications() {
       <div className='contact-grid'>
         {
           applications.map((application, idx) => (
-            <ApplicationCard key={idx} application={ application } deleteApplication={ deleteApplication } allApplications={applications} contacts={ contacts } />            
+            <ApplicationCard key={idx} application={ application } deleteApplication={ deleteApplication } contacts={ contacts } />            
           ))
         }
 

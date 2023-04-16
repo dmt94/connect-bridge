@@ -8,10 +8,11 @@ function ContactCard({contact, deleteContact, allContacts}){
     <div className="flex-r contact-card">
       <div className="contact-card-info">
         <h3>{contact.relationship}</h3>
+        <p>{contact.reference ? "Reference" : ""}</p>
         <h4>{contact.name}</h4>
         <p>{contact.company}</p>
         <p>{contact.position}</p>
-        <p>{contact.email}</p>
+        <p>{contact.email}</p>        
         <div>
           <span>{contact.mutuals.length} mutuals</span>
         </div>

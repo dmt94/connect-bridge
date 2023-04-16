@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './ViewContact.css';
 
-const ViewContact = ({contact, allContacts}) => {
+const ViewContact = ({ contact, allContacts }) => {
   return ( 
     <div className="main-contact-div">
       <div className="contact-wrapper">

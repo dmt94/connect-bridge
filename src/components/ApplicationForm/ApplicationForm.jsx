@@ -66,9 +66,9 @@ const ApplicationForm = ({ applications }) => {
 
           <label htmlFor="environment">Environment:</label>
           <select name="environment" onChange={handleChange}>
-            <option value="In-office" defaultChecked>In-office</option>
-            <option value="In-office">Remote</option>
-            <option value="In-office">Hybrid</option>
+            <option value="In-Office" defaultChecked>In-Office</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
           </select>
 
           <label htmlFor="location">Location:</label>

@@ -1,3 +1,7 @@
 .application-card {
   background-color: rgb(62, 59, 54);
 }
+
+.app-card-bottom-row {
+  justify-content: space-between;
+}

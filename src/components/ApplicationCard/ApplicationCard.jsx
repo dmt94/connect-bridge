@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import "./ApplicationCard.css";
 
-const ApplicationCard = ({application, deleteApplication, applications, contacts}) => {
+const ApplicationCard = ({application, deleteApplication, contacts}) => {
   return ( 
     <div className="application-card">
       <div className="flex-r">
@@ -9,7 +10,10 @@ const ApplicationCard = ({application, deleteApplication, applications, contacts
       </div>
       <h1>{application.role}</h1>
       <h3>{application.company}</h3>
-      <button onClick={() => {deleteApplication(application._id)}}>Delete</button>
+      <div className="flex-r app-card-bottom-row">
+        <Link to={`/applications/${application._id}`} state={{applicationId: application._id}}>View Application</Link>
+        <button onClick={() => {deleteApplication(application._id)}}>Delete</button>
+      </div>
     </div>
    );
 }

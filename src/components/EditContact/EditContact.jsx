@@ -83,7 +83,6 @@ const EditContact = () => {
   async function handleSubmit(evt) {
     evt.preventDefault();
     const payload = currentContact;
-    console.log("payload", payload);
     updateContact(contact._id, payload);
     setToggleViewEdit(!toggleViewEdit);
   }
@@ -119,7 +118,7 @@ const EditContact = () => {
         </div>
         <div>
           <input type="text" onChange={ handleChange } name="url" placeholder={contact.url ? contact.url : "Website"} />
-          <input type="text" onChange={ handleChange } name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Website"} />
+          <input type="text" onChange={ handleChange } name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Linkedin"} />
         </div>
       </div>
       
