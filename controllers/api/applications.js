@@ -16,7 +16,7 @@ async function create(req, res) {
 
 async function update(req, res) {
   try {
-    const updatedApplication = await Application.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('contacts');
+    const updatedApplication = await Application.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('contacts').populate('reference').populate('task');
     console.log(updatedApplication);
     res.json(updatedApplication);
   } catch (err) {
