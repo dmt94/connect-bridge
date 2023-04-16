@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import * as tasksAPI from '../../utilities/tasks-api';
 import './ViewApplication.css';
 
 const ViewApplication = ({ application }) => {
@@ -31,6 +32,18 @@ const ViewApplication = ({ application }) => {
       setTaskLimit(false);
       handleToggle(evt);
     }
+  }
+
+  async function handleChange(evt) {
+    setTask({...task, [evt.target.name]: evt.target.value });
+  }
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    if (task) {
+      await tasksAPI.createTask(task);
+    }
+    setTask({[evt.target.name]: evt.target.value});
   }
 
   return ( 
