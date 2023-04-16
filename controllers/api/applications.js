@@ -26,7 +26,7 @@ async function update(req, res) {
 }
 
 async function allApplications(req, res) {
-  const applications = await Application.find({user: req.user._id});
+  const applications = await Application.find({user: req.user._id}).populate('contacts').populate('reference').populate('task');
   res.json(applications);
 }
 
@@ -37,6 +37,6 @@ async function deleteApplication(req, res) {
 }
 
 async function getApplication(req, res) {
-  const application = await Application.findById(req.params.id);
+  const application = await Application.findById(req.params.id).populate('contacts').populate('reference').populate('task');
   res.json(application);
 }

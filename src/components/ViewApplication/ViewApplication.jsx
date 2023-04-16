@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as tasksAPI from '../../utilities/tasks-api';
 import './ViewApplication.css';
+import TaskCard from "../TaskCard/TaskCard";
 
 const ViewApplication = ({ application }) => {
   const [toggle, setToggle] = useState(false);
@@ -40,12 +41,11 @@ const ViewApplication = ({ application }) => {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(application);
-    console.log("HIIII");
-    // if (task) {
-    //   await tasksAPI.createTask(application._id, task);
-    // }
-    // setTask({[evt.target.name]: evt.target.value});
+    console.log(task);
+    if (task) {
+      await tasksAPI.createTask(application._id, task);
+    }
+    setTask({[evt.target.name]: evt.target.value});
   }
 
   return ( 
@@ -78,23 +78,24 @@ const ViewApplication = ({ application }) => {
         <div>
         <h2>Tasks</h2>
           <ul>
-            <li>
-              <div className="flex-r task-list">
-                <span onClick={(evt) => {crossTask(evt)}}>List item</span>
-                <a href="">Delete</a>
-              </div>
-            </li>
+            {application.task ? (
+              application.task.map((task, idx) => (
+                <li key={idx}>
+                  <TaskCard task={task} onClick={(evt) => {crossTask(evt)}} />
+                </li>
+              ))
+            ) : "" }
           </ul>
         {toggle ? (
-          <form action="" className="flex-c">
+          <form action="" className="flex-c" onSubmit={ handleSubmit }>
             
               <div className="flex-c">
               <p>Add New Task</p>
-              <input name="name" type="text" placeholder="Task name" />
-              <input type="datetime-local" name="date" id="" />
-              <textarea name="description" cols="30" rows="4" placeholder="Task Description"></textarea>
+              <input name="name" type="text" placeholder="Task name" onChange={handleChange}/>
+              <input type="datetime-local" name="date" id="" onChange={ handleChange }/>
+              <textarea name="description" cols="30" rows="4" placeholder="Task Description" onChange={handleChange}></textarea>
               <span>Status</span>
-              <select name="status">
+              <select name="status" onChange={handleChange}>
                 <option value="In-progress">In-progress</option>
                 <option value="In-progress">Complete</option>
               </select>

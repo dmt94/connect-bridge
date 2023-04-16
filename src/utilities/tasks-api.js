@@ -7,6 +7,7 @@ export async function getAllTasks() {
 
 export async function createTask(applicationId, taskData) {
   taskData.application = applicationId;
+  console.log(taskData);
   return sendRequest(`${BASE_URL}/create`, 'POST', taskData)
 }
 

@@ -10,12 +10,22 @@ module.exports = {
 }
 
 async function create(req, res) {
-  console.log(req);
+  const applicationId = req.body.application;
   req.body.user = req.user;
-  const task = await Task.create(req.body);
-  res.json(task);
 
-  // const updatedApplication = await Application.findByIdAndUpdate(req.params.applicationId)
+  try {
+    const task = await Task.create(req.body);
+    const updatedApplication = await Application.findByIdAndUpdate(applicationId, {
+      $push: {task: task._id}
+    }, {new: true}).populate('contacts').populate('reference').populate('task');
+    
+    console.log("updated Application", updatedApplication)
+    res.json(updatedApplication);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Internal server error' });
+
+  }
 }
 
 async function update(req, res) {
