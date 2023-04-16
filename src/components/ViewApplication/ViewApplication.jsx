@@ -25,7 +25,16 @@ const ViewApplication = ({ application }) => {
         <p>Contacts Associated</p>
       </div>
       <div>
-        <p>Tasks</p>
+        <h2>Tasks</h2>
+        <ul>
+          <li>
+            <div>
+              <span>List item</span>
+              <a href="">Delete</a>
+            </div>
+          </li>
+        </ul>
+        <button>Add Task</button>
       </div>
     </div>
    );
