@@ -95,6 +95,8 @@ const ViewApplication = ({ application, setApplication }) => {
 
         <div>
         <h2>Tasks</h2>
+        <button className="add-btn" onClick={(evt) => handleAddTaskComponent(evt) }>{toggle ? "Cancel" : "Add New Task"}</button>
+        {taskLimit ? (<p>Task limit of 10 reached. Delete a task to add more</p>): ""}
           <div className="grid-3">
             {application.task ? (
               application.task.map((task, idx) => (
@@ -122,8 +124,6 @@ const ViewApplication = ({ application, setApplication }) => {
          </form>
         ) : ""
       }
-        <button className="add-btn" onClick={(evt) => handleAddTaskComponent(evt) }>{toggle ? "Cancel" : "Add New Task"}</button>
-        {taskLimit ? (<p>Task limit of 10 reached. Delete a task to add more</p>): ""}
       </div>
     </div>
    );
