@@ -10,3 +10,13 @@
 .cross-task {
   text-decoration: line-through;
 }
+
+.view-application-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.view-application-div * {
+  margin: 1vmin;
+}
