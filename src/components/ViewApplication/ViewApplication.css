@@ -1,0 +1,12 @@
+.task-list {
+  align-items: center;
+}
+
+.task-list span {
+  cursor: pointer;
+  font-size: 3vmin;
+}
+
+.cross-task {
+  text-decoration: line-through;
+}

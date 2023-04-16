@@ -11,7 +11,7 @@ const task = new Schema({
     required: true,
     maxLength: 200
   },
-  deadline: {
+  date: {
     type: Date,
     default: function() {
       return new Date();

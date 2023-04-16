@@ -3,7 +3,7 @@ import './ViewContact.css';
 
 const ViewContact = ({ contact, allContacts }) => {
   return ( 
-    <div className="main-contact-div">
+    <div className="main-div">
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
         <div>
