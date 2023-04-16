@@ -1,0 +1,11 @@
+.task-name:hover {
+  cursor: pointer;
+  color: rgb(0, 255, 157);
+}
+
+.task-card {
+  max-width: 300px;
+  background-color: black;
+  border-radius: 10px;
+  padding: 1vmin;
+}

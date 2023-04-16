@@ -69,13 +69,3 @@
   background-color: rgba(245, 245, 220, 0);
   color: rgb(34, 31, 31);
 }
-
-.delete-btn {
-  margin: 3vmin 0 1vmin 0;
-  width: fit-content;
-  text-align: center;
-}
-
-.delete-btn:hover {
-  color: red;
-}

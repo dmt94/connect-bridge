@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as tasksAPI from '../../utilities/tasks-api';
 import './ViewApplication.css';
 import TaskCard from "../TaskCard/TaskCard";
 
-const ViewApplication = ({ application }) => {
+const ViewApplication = ({ application, setApplication }) => {
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
+  const [toggleCross, setToggleCross] = useState(false);
   const [taskLimit, setTaskLimit] = useState(false);
-  const [checkTask, setCheckTask] = useState(false);
   const [task, setTask] = useState({
     name: "",
     date: "",
@@ -20,9 +21,17 @@ const ViewApplication = ({ application }) => {
     setToggle(!toggle);
   }
 
-  function crossTask(evt) {
+  async function crossTask(evt, id) {
     evt.preventDefault();
     evt.target.classList.toggle("cross-task");
+    const targetTask = await tasksAPI.getTask(id);
+    const updatedTask = {
+      ...targetTask,
+      status: targetTask.status === "In-progress" ? "Complete" : "In-progress"
+    };
+    const updatedApplication = await tasksAPI.updateTask(id, updatedTask);
+    setApplication(updatedApplication);
+    navigate(0);
   }
 
   function handleAddTaskComponent(evt) {
@@ -35,17 +44,24 @@ const ViewApplication = ({ application }) => {
     }
   }
 
+  async function handleDeleteTask(id) {
+    const updatedApplication = await tasksAPI.deleteTask(id);
+    navigate(0);
+    setApplication(updatedApplication);
+  }
+
   async function handleChange(evt) {
     setTask({...task, [evt.target.name]: evt.target.value });
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(task);
     if (task) {
-      await tasksAPI.createTask(application._id, task);
+      const addTask = await tasksAPI.createTask(application._id, task);
+      setApplication(addTask);
     }
-    setTask({[evt.target.name]: evt.target.value});
+    setTask({...task, [evt.target.name]: evt.target.value});
+    setToggle(!toggle);
   }
 
   return ( 
@@ -81,7 +97,7 @@ const ViewApplication = ({ application }) => {
             {application.task ? (
               application.task.map((task, idx) => (
                 <li key={idx}>
-                  <TaskCard task={task} onClick={(evt) => {crossTask(evt)}} />
+                  <TaskCard task={task} crossTask={crossTask} deleteTask={handleDeleteTask} setApplication={setApplication} />
                 </li>
               ))
             ) : "" }
@@ -92,12 +108,12 @@ const ViewApplication = ({ application }) => {
               <div className="flex-c">
               <p>Add New Task</p>
               <input name="name" type="text" placeholder="Task name" onChange={handleChange}/>
-              <input type="datetime-local" name="date" id="" onChange={ handleChange }/>
+              <input type="datetime-local" name="date" id="" defaultValue={new Date().toLocaleDateString()} onChange={ handleChange }/>
               <textarea name="description" cols="30" rows="4" placeholder="Task Description" onChange={handleChange}></textarea>
               <span>Status</span>
               <select name="status" onChange={handleChange}>
                 <option value="In-progress">In-progress</option>
-                <option value="In-progress">Complete</option>
+                <option value="Complete">Complete</option>
               </select>
               <button>Add</button>
               </div>      

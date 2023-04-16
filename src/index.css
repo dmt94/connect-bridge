@@ -174,3 +174,15 @@ a {
 label {
   color: white;
 }
+
+.delete-btn {
+  margin: 3vmin 0 1vmin 0;
+  width: fit-content;
+  text-align: center;
+  height: 40px;
+}
+
+.delete-btn:hover {
+  color: rgb(251, 251, 251);
+  background-color: rgb(180, 1, 1);
+}

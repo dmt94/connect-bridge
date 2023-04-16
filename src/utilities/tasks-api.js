@@ -20,5 +20,7 @@ export async function deleteTask(id) {
 }
 
 export async function updateTask(id, payload) {
+  payload.taskId = id;
+  console.log("payload", payload);
   return sendRequest(`${BASE_URL}/update/${id}`, 'PUT', payload);
 }
