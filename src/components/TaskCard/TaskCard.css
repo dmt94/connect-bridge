@@ -4,8 +4,41 @@
 }
 
 .task-card {
-  max-width: 300px;
-  background-color: black;
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.429);
   border-radius: 10px;
   padding: 1vmin;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.342) 0px 4px 12px; 
+}
+
+.task-card h2 {
+  font-size: 18px;
+}
+
+.task-card button {
+  align-self:flex-end;
+  margin: 0;
+}
+
+.task-card div .edit-btn {
+  background-color: rgb(74, 74, 69);
+  border-radius: 1px;
+  padding: 8px;
+}
+.task-card div .edit-btn:hover {
+  color: white;
+}
+
+.task-card:hover {
+  background-color: black;
+  transition: 1s ease-in-out;
+}
+
+.task-card * {
+  margin: 2vmin;
+}
+
+.task-card div p {
+  margin-bottom: 33px;
 }

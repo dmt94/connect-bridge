@@ -95,15 +95,15 @@ const ViewApplication = ({ application, setApplication }) => {
 
         <div>
         <h2>Tasks</h2>
-          <ul>
+          <div className="grid-3">
             {application.task ? (
               application.task.map((task, idx) => (
-                <li key={idx}>
+                <div key={idx}>
                   <TaskCard task={task} crossTask={crossTask} deleteTask={handleDeleteTask} setApplication={setApplication} />
-                </li>
+                </div>
               ))
             ) : "" }
-          </ul>
+          </div>
         {toggle ? (
           <form action="" className="flex-c" onSubmit={ handleSubmit }>
             
@@ -122,7 +122,7 @@ const ViewApplication = ({ application, setApplication }) => {
          </form>
         ) : ""
       }
-        <button onClick={(evt) => handleAddTaskComponent(evt) }>{toggle ? "Cancel" : "Add New Task"}</button>
+        <button className="add-btn" onClick={(evt) => handleAddTaskComponent(evt) }>{toggle ? "Cancel" : "Add New Task"}</button>
         {taskLimit ? (<p>Task limit of 10 reached. Delete a task to add more</p>): ""}
       </div>
     </div>
