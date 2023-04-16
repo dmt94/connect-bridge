@@ -14,7 +14,6 @@ const ViewApplication = ({ application }) => {
 
   function crossTask(evt) {
     evt.preventDefault();
-    console.log(evt.target);
     evt.target.classList.toggle("cross-task");
   }
 
