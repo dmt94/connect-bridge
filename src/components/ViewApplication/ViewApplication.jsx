@@ -25,7 +25,6 @@ const ViewApplication = ({ application, setApplication }) => {
     evt.preventDefault();
     evt.target.classList.toggle("cross-task");
     const targetTask = await tasksAPI.getTask(id);
-    console.log(targetTask.date);
     const updatedTask = {
       ...targetTask,
       status: targetTask.status === "In-progress" ? "Complete" : "In-progress",

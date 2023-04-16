@@ -1,0 +1,8 @@
+.edit-task-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-task-form form * {
+  margin: 1vmin;
+}

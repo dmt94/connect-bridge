@@ -3,12 +3,8 @@ import './TaskCard.css';
 import * as tasksAPI from '../../utilities/tasks-api';
 import EditTaskForm from "../EditTaskForm/EditTaskForm";
 
-const TaskCard = ({task, deleteTask, crossTask}) => {
-  const [editFormToggle, setEditFormToggle] = useState(false);
-  async function handleEditTask() {
-
-  }
-  
+const TaskCard = ({task, deleteTask, crossTask, setApplication}) => {
+  const [editFormToggle, setEditFormToggle] = useState(false);  
   function editTaskToggle(evt) {
     evt.preventDefault();
     setEditFormToggle(!editFormToggle);
@@ -17,7 +13,7 @@ const TaskCard = ({task, deleteTask, crossTask}) => {
   return ( 
     <div className="flex-c task-card">
       <button className="delete-btn" onClick={() => {deleteTask(task._id)}}>X</button>
-      {editFormToggle ? (<EditTaskForm task={task} />) : 
+      {editFormToggle ? (<EditTaskForm task={task} setApplication={setApplication} />) : 
         ( 
         <div>
           <p className='tag date-tag'>{new Date(task.date).toLocaleDateString()}</p>
