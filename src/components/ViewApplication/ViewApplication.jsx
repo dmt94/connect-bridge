@@ -11,7 +11,7 @@ const ViewApplication = ({ application, setApplication }) => {
   const [taskLimit, setTaskLimit] = useState(false);
   const [task, setTask] = useState({
     name: "",
-    date: "",
+    date: new Date(),
     status: "In-progress",
     description: ""
   })
@@ -25,9 +25,11 @@ const ViewApplication = ({ application, setApplication }) => {
     evt.preventDefault();
     evt.target.classList.toggle("cross-task");
     const targetTask = await tasksAPI.getTask(id);
+    console.log(targetTask.date);
     const updatedTask = {
       ...targetTask,
-      status: targetTask.status === "In-progress" ? "Complete" : "In-progress"
+      status: targetTask.status === "In-progress" ? "Complete" : "In-progress",
+      date: targetTask.date === null ? new Date().toLocaleDateString() : targetTask.date
     };
     const updatedApplication = await tasksAPI.updateTask(id, updatedTask);
     setApplication(updatedApplication);
@@ -108,7 +110,7 @@ const ViewApplication = ({ application, setApplication }) => {
               <div className="flex-c">
               <p>Add New Task</p>
               <input name="name" type="text" placeholder="Task name" onChange={handleChange}/>
-              <input type="datetime-local" name="date" id="" defaultValue={new Date().toLocaleDateString()} onChange={ handleChange }/>
+              <input type="datetime-local" name="date" id="" defaultValue={new Date()} onChange={handleChange}/>
               <textarea name="description" cols="30" rows="4" placeholder="Task Description" onChange={handleChange}></textarea>
               <span>Status</span>
               <select name="status" onChange={handleChange}>
