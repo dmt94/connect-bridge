@@ -1,12 +1,22 @@
 import * as applicationsAPI from '../../utilities/applications-api';
 import * as contactsAPI from '../../utilities/contacts-api';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './EditApplication.css';
 
 const EditApplication = ({ application }) => {
+
   const navigate = useNavigate();
   const [currentApplication, setCurrentApplication] = useState({application});
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(function() {
+    async function getContacts() {
+      const contactsReceived = await contactsAPI.getAllContacts();
+      setContacts(contactsReceived);
+    }
+    getContacts();
+  }, []);
 
 
   function handleChange(evt) {
@@ -30,6 +40,7 @@ const EditApplication = ({ application }) => {
   return ( 
   <div>
     <div className="main-div view-application-div">
+        <form action={handleSubmit}>
       <div className="flex-c edit-app-wrap">
         <input className='tag' type="date" name="date" onChange={handleChange}/>
           
@@ -56,7 +67,7 @@ const EditApplication = ({ application }) => {
 
           <div className="flex-r">
             <label htmlFor="company">*Company:</label>
-          <input className='company-tag input-company-tag' type="text" name="company" placeholder={application.company} required onChange={handleChange} />
+          <input className='company-tag input-company-tag' type="text" name="company" placeholder={application.company} onChange={handleChange} />
 
           <label htmlFor="companyWebsite" placeholder={application.companyWebsite}>Company Website:</label>
           <input className='tag' type="text" name="companyWebsite" onChange={handleChange} />
@@ -64,31 +75,63 @@ const EditApplication = ({ application }) => {
           <label htmlFor="industry">Industry:</label>
           <input className='tag' type="text" name="industry" onChange={handleChange} />
           </div>
-          
-          <h2 className="heading-emphasis">{application.role}</h2>
-          <div className="flex-r">
-            <h4 className="tag">{application.type}</h4>
-            <p className="tag">{application.environment}</p>
-            <p className="tag salary-tag">{(application.salary === "" || application.salary === null) ? "$" : application.salary}</p>
-          </div>
-          <div className="flex-r">
-            <a className="tag url-tag" href={application.applicationUrl ? application.applicationUrl : "https://github.com/dmt94"}>Original Application Link</a>  
-          </div>
-          
-          <h2>{application.location ? "Location" : ""}</h2>
-          <p>{application.location}</p>
 
-          <h3 className="secondary-emphasis">Role Description:</h3>
-          <p>{application.description}</p>
-          <div className="flex-c">
-            <p className="underline">References</p>
-          </div>
-          <div className="flex-c">
-            <p className="underline">Contacts Associated with this application</p>
-          </div>
+          
+          <label htmlFor="role">*Role:</label>
+          <input className="heading-emphasis tag required-tag" placeholder={application.role} type="text" name="role" onChange={handleChange} />
+
+          <div className="flex-r">
+            <label htmlFor="type">Type:</label>
+            <select className='tag' name="type" onChange={ handleChange }>
+              <option value="Full-Time" defaultChecked>Full-Time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Internship">Internship</option>
+              <option value="Apprenticeship">Apprenticeship</option>
+              <option value="Volunteer">Volunteer</option>
+            </select>
+            
+            <label htmlFor="environment">Environment:</label>
+            <select className='tag' name="environment" onChange={handleChange}>
+              <option value="In-Office" defaultChecked>In-Office</option>
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+
+          <label htmlFor="salary">Salary Expectation:</label>
+          <input className='tag salary-tag' type="text" name="salary" onChange={handleChange} placeholder={application.salary ? application.salary : '$'}/>
+
+
           </div>
 
-    </div>
+         <label htmlFor="applicationUrl">Application URL:</label>
+          <input className='tag' type="text" name="applicationUrl" onChange={handleChange} />
+
+          <label htmlFor="location">Location:</label>
+          <input className='tag' type="text" name="location" onChange={handleChange} />
+
+          <label htmlFor="description">*Description:</label>
+          <textarea className='required-tag tag' placeholder={application.description} type="text" name="description" onChange={handleChange} />
+
+          <div className="flex-c">
+            <div className="select-contacts-div">
+              <label htmlFor="reference">Possible References:</label>
+              <select name="reference" onChange={handleChange} multiple className="multiple-select">
+                {contacts.map((contact, idx) => (                  
+                  <option key={idx} value={contact._id}>{contact.name}</option>
+                ))}
+              </select>
+              <label htmlFor="contacts">Contacts Associated with Application:</label>
+              <select name="contacts" onChange={handleChange} multiple className="multiple-select">
+                {contacts.map((contact, idx) => (                  
+                    <option key={idx} value={contact._id}>{contact.name}</option>
+                  ))}
+              </select>
+            </div>
+          </div>
+      <button className='edit-btn' type="submit">Edit Application</button>
+          </div>
+          </form>
+    </div>          
   </div> );
 }
  

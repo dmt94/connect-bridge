@@ -21,3 +21,24 @@
 .edit-app-wrap label {
   font-size: 3vmin;
 }
+
+.view-application-div form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-application-div form button {
+  background-color: rgb(172, 255, 127);
+  color: rgb(0, 0, 0);
+  font-size: 3vmin;
+}
+
+.view-application-div form button:hover {
+  background-color: rgb(155, 239, 58);
+}
+
+.required-tag {
+  background-color: rgb(246, 246, 161);
+}
