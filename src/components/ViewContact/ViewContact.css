@@ -24,7 +24,6 @@
 .mutual-contact-grid {
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 255, 255, 0.19);
 }
 
 .mutual-contact {
@@ -38,4 +37,8 @@
 .mutual-contact * {
   margin: 0;
   max-width: fit-content;
+}
+
+a:hover {
+  color: yellow;
 }

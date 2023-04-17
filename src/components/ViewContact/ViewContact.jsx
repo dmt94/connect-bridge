@@ -4,6 +4,7 @@ import './ViewContact.css';
 const ViewContact = ({ contact }) => {
   return ( 
     <div className="main-div">
+      <p className="tag company-tag">{contact.reference ? "Reference" : ""}</p>
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
         <div>

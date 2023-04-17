@@ -1,5 +1,5 @@
 import * as contactsAPI from '../../utilities/contacts-api';
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import './EditContact.css';
 import '../ViewContact/ViewContact.css';
@@ -10,6 +10,7 @@ const EditContact = () => {
   const contactState = location.state;
   const contact = contactState.contact;
   const allContacts = contactState.allContacts;
+  const navigate = useNavigate();
 
   const [toggle, setToggle] = useState(false);
 
@@ -35,6 +36,10 @@ const EditContact = () => {
       mutuals: contact.mutuals,
     }
     );
+
+  const goBack = () => {
+      navigate(-1);
+    }
 
   async function handleChange(evt) {
     if (evt.target.type === "file") {
@@ -88,6 +93,7 @@ const EditContact = () => {
 
   return ( 
     <div className="main-contact-div">
+      <button className='wide-delete' onClick={goBack}>Go Back</button>
       {toggleViewEdit ? (
         <>
           <h4>Contact Preview</h4>
@@ -99,35 +105,41 @@ const EditContact = () => {
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
         <div className="flex-c">
+          <label htmlFor="name">Name</label>
           <input type="text" name="name" placeholder={contact.name} onChange={ handleChange } />
+          <div className='
+          flex-r'>
           <label htmlFor="relationship">Relationship with Contact:</label>
-          <select name="relationship" onChange={ handleChange }>
+          <select className='tag' name="relationship" onChange={ handleChange }>
             <option value="Professional" defaultChecked>Professional</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
             <option value="Close Friend">Close Friend</option>
             <option value="Family">Family</option>
           </select>
+          </div>
           <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
           {
-            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
+            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input className='file-input' type="file" name="image" onChange={ handleChange } />)
           }
           <img src={imagePreview} alt="" className="contact-profile-img" />
-          <textarea name="about" onChange={ handleChange } cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
+          <textarea className='tag text-area' name="about" onChange={ handleChange } cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
         </div>
         <div>
+          <label htmlFor="url">Website</label>
           <input type="text" onChange={ handleChange } name="url" placeholder={contact.url ? contact.url : "Website"} />
+          <label htmlFor="linkedin">Linkedin</label>
           <input type="text" onChange={ handleChange } name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Linkedin"} />
         </div>
       </div>
       
       <input type="text" onChange={ handleChange } placeholder={contact.email ? contact.email : "Email"} />
       <input type="text" onChange={ handleChange } placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
-      <p>Mutual Contacts:</p>
+      
       <div className="mutual-contact-edit">      
       <label htmlFor="mutuals">Mutual Contacts:</label>
-        <select name="mutuals" onChange={ handleChange } multiple className="multiple-select">
-          {allContacts.map((contact, idx) => (                  
+        <select name="mutuals" onChange={ handleChange } multiple className="multiple-select mutuals-select">
+          {allContacts.map((contact, idx) => (                
             <option key={idx} value={contact._id}>{contact.name}</option>
           ))}
         </select>

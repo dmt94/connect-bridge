@@ -5,7 +5,8 @@
 
 .mutual-contact-edit {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  max-width: 400px;
 }
 
 .mutual-contact-edit p {
@@ -14,3 +15,40 @@
   padding: 2vmin;
   color: black;
 }
+
+.mutuals-select {
+  font-size: 2.8vmin;
+}
+
+.main-contact-div {
+  margin: 5vmin;
+}
+
+.main-contact-div input {
+  font-size: 3vmin;
+  margin: 1vmin;
+}
+
+.main-contact-div label {
+  font-size: 3vmin;
+  margin: 3vmin auto;
+}
+
+.main-contact-div * {
+  margin: 0.7vmin;
+}
+
+.file-input {
+  color: white;
+  border-radius: 9px;
+}
+.text-area {
+  font-size: 3vmin;
+  font-weight: 600;
+}
+
+.radio-div input {
+  width: 30px;
+  height: 30px;
+}
+

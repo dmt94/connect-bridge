@@ -157,7 +157,7 @@ button, a.button {
   margin: 1vmin;
   color: var(--white);
   background-color: rgba(174, 150, 150, 0.491);
-  font-size: 2vmin;
+  font-size: 3vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
@@ -166,6 +166,10 @@ button, a.button {
   outline: none;
   cursor: pointer;
   padding: 1vmin;
+}
+
+button:hover {
+  opacity: 0.7;
 }
 
 button.btn-sm {
@@ -281,6 +285,10 @@ label {
   color: black;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 2.5vmin;
+}
+
+.important {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(255, 231, 12, 0.834) 0px 30px 60px -30px;
 }
 
 .contact-tag {
