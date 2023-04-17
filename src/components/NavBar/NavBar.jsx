@@ -11,7 +11,7 @@ export default function NavBar({ user, setUser }) {
     <div className='navbar'>
       <nav className='flex-r'>
         <div>
-          <Link to="/" className="nav-link">Dashboard</Link>
+          <Link to="/" className="nav-link">About</Link>
           &nbsp; | &nbsp; 
           <Link to="/applications" className="nav-link">Application</Link>
           &nbsp; | &nbsp; 
@@ -21,7 +21,6 @@ export default function NavBar({ user, setUser }) {
         </div>
         <div>
           <span>Welcome, {user.name}!</span>
-          <span>Logo</span>
         </div>
       </nav>
       <hr />

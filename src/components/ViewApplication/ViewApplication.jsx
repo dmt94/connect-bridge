@@ -103,6 +103,7 @@ const ViewApplication = ({ application, setApplication }) => {
           </div>
           <div className="flex-c">
             <p className="underline">Contacts Associated with this application</p>
+            <div className="flex-r max-300">
             {
             application.contacts ? (
               application.contacts.map((contact, idx) => (
@@ -110,6 +111,7 @@ const ViewApplication = ({ application, setApplication }) => {
               ))
             ) : (<p>N/A</p>)
           }
+          </div>
           </div>
           </div>
         </div>

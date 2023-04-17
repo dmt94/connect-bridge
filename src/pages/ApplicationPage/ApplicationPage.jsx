@@ -31,7 +31,6 @@ const ApplicationPage = () => {
   return ( 
     <div className="application-page">
       <div className="flex-r">
-        {/* <Link className="edit-btn" to={`/applications/${application._id}/edit`} state={{application}}>Edit Application</Link> */}
         <button className="edit-btn" onClick={(evt) => handleEditAppToggle(evt)}>{toggleEditApplication ? "Cancel Edit" : "Edit Application"}</button>
         <button className="wide-delete-btn" onClick={() => { deleteApplication(application._id) }}>Delete Application</button>
       </div>

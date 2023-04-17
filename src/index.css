@@ -208,6 +208,10 @@ label {
   color: white;
 }
 
+.max-300 {
+  width: 300px;
+}
+
 /* buttons */
 
 .add-btn {
@@ -333,4 +337,8 @@ a {
 
 .contact-preview-img:hover {
   opacity: 0.8;
+}
+
+.logo-img {
+  width: 100px;
 }
