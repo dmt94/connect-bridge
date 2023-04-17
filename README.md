@@ -41,7 +41,7 @@ ___
 
 <a href="https://trello.com/b/dbFgNmVC/job-app-tracker">Project Planning</a>
 <br>
-<a href="">Deployed App</a>
+<a href="https://connect-bridge.herokuapp.com/">Deployed App</a>
 
 ### Next Steps
 ___
