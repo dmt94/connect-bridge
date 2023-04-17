@@ -15,9 +15,21 @@
 .view-application-div {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  background-color: rgba(240, 248, 255, 0);
 }
 .view-application-div * {
   margin: 1vmin;
+}
+
+.left-div {
+  max-width: 700px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-div p {
+  font-size: 3vmin;
 }

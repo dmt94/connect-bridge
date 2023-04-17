@@ -68,25 +68,33 @@ const ViewApplication = ({ application, setApplication }) => {
     <div className="main-div view-application-div">
       <div className="flex-r">
         <div className="left-div">
-          <h3>{application.status}</h3>
-          <h3>{application.priority}</h3>
-          <h2>{application.role}</h2>
-          <h4>{application.type}</h4>
-          <p>{application.company}</p>
-          <p>{application.companyWebsite}</p>
-          <p>{application.industry}</p>
-          <h4>{new Date(application.date).toLocaleDateString()}</h4>
-          <p>{application.applicationUrl}</p>
-          <p>{application.environment}</p>
-          <h2>Location:</h2>
+        <h4>{application.date ? new Date(application.date).toLocaleDateString() : "No Application Date Provided"}</h4>
+          <h3 className="status-ip tag">{application.status}</h3>
+          <h3>{application.priority ? '⭐ Priority ⭐' : ''}</h3>
+          <div className="flex-r">
+            <a className="tag company-tag" href={application.companyWebsite ? application.companyWebsite : "https://github.com/dmt94"}>{application.company}</a>
+            <p className="tag">{application.industry}</p>
+          </div>
+          <h2 className="heading-emphasis">{application.role}</h2>
+          <div className="flex-r">
+            <h4 className="tag">{application.type}</h4>
+            <p className="tag">{application.environment}</p>
+            <p className="tag salary-tag">{(application.salary === "" || application.salary === null) ? "$" : application.salary}</p>
+          </div>
+          <div className="flex-r">
+            <a className="tag url-tag" href={application.applicationUrl ? application.applicationUrl : "https://github.com/dmt94"}>Original Application Link</a>  
+          </div>
+          
+          <h2>{application.location ? "Location" : ""}</h2>
           <p>{application.location}</p>
+
+          <h3 className="secondary-emphasis">Role Description:</h3>
           <p>{application.description}</p>
-          <p>{application.salary}</p>
           <div>
             <p>References</p>
           </div>
           <div>
-            <p>Contacts Associated</p>
+            <p>Contacts Associated with this application</p>
           </div>
           </div>
         </div>

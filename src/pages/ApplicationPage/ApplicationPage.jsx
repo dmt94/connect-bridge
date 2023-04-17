@@ -27,7 +27,6 @@ const ApplicationPage = () => {
   }
   return ( 
     <div>
-      <h3>Application Page!</h3>
       <ViewApplication application={application} setApplication={setApplication} />
       
       {/* <Link to={`/applications/${application._id}/edit`} state={{application}}>Edit Application</Link>
