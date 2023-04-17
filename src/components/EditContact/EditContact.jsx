@@ -1,12 +1,11 @@
 import * as contactsAPI from '../../utilities/contacts-api';
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 import './EditContact.css';
 import '../ViewContact/ViewContact.css';
 import ViewContact from '../ViewContact/ViewContact';
 
 const EditContact = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const contactState = location.state;
   const contact = contactState.contact;

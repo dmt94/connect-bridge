@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as tasksAPI from '../../utilities/tasks-api';
 import './ViewApplication.css';
 import TaskCard from "../TaskCard/TaskCard";
@@ -7,7 +7,6 @@ import TaskCard from "../TaskCard/TaskCard";
 const ViewApplication = ({ application, setApplication }) => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const [toggleCross, setToggleCross] = useState(false);
   const [taskLimit, setTaskLimit] = useState(false);
   const [task, setTask] = useState({
     name: "",

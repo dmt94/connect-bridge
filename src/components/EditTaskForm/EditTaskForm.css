@@ -1,6 +1,7 @@
 .edit-task-form form {
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .edit-task-form form * {
