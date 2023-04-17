@@ -100,6 +100,20 @@ code {
   border-radius: 1vmin;
 }
 
+.auth-form {
+  padding: 5vmin;
+  background-color: rgba(73, 117, 211, 0.386);
+  border: .1vmin solid var(--tan-3);
+  border-radius: 20px;
+}
+
+.auth-form label {
+  font-size: 3vmin;
+}
+.auth-form input {
+  font-size: 3vmin;
+}
+
 p.error-message {
   color: var(--orange);
   text-align: center;
