@@ -1,0 +1,8 @@
+.application-page {
+  margin-top: 3vmin;
+}
+
+.application-page .flex-r {
+  justify-content: space-between;
+  max-width: 100%;
+}

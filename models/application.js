@@ -57,7 +57,7 @@ const applicationSchema = new Schema({
     required: true
   },
   salary: {
-    type: Number
+    type: String
   },
   status: {
     type: String,

@@ -219,6 +219,14 @@ label {
   background-color: #E7E2DD;
 }
 
+.wide-delete-btn {
+  background-color: rgb(219, 85, 85);
+  height: fit-content;
+}
+.wide-delete-btn:hover {
+  background-color: rgb(248, 33, 33);
+}
+
 .delete-btn {
   margin: 3vmin 0 1vmin 0;
   width: fit-content;
@@ -276,6 +284,19 @@ label {
   opacity: 0.7;
 } */
 
+a {
+  width: max-content;
+}
+
+.contact-tag {
+  background-color: #ccea72;
+  width: max-content;
+}
+
+.contact-tag:hover {
+  background-color: #eaf523;
+}
+
 .url-tag {
   background-color: rgb(147, 196, 240);
 }
@@ -302,4 +323,14 @@ label {
 
 .status-ip {
   background-color: rgb(255, 187, 0);
+}
+
+/*Image*/
+.contact-preview-img {
+  width: 100px;
+  border-radius: 50px;
+}
+
+.contact-preview-img:hover {
+  opacity: 0.8;
 }

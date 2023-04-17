@@ -11,7 +11,7 @@ const ContactForm = ({ contacts }) => {
   const [contact, setContact] = useState(
     {
       name: "",
-      image: "",
+      image: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
       position: "",
       company: "",
       about: "",

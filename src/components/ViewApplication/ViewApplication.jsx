@@ -73,7 +73,7 @@ const ViewApplication = ({ application, setApplication }) => {
           <h3>{application.priority ? '⭐ Priority ⭐' : ''}</h3>
           <div className="flex-r">
             <a className="tag company-tag" href={application.companyWebsite ? application.companyWebsite : "https://github.com/dmt94"}>{application.company}</a>
-            <p className="tag">{application.industry}</p>
+            <p className="tag">{application.industry ? application.industry: "Industry"}</p>
           </div>
           <h2 className="heading-emphasis">{application.role}</h2>
           <div className="flex-r">
@@ -95,7 +95,8 @@ const ViewApplication = ({ application, setApplication }) => {
             {
             application.reference ? (
               application.reference.map((ref, idx) => (
-                <Link to={`/contacts/${ref._id}`} className="tag" key={idx} state={{contactId: ref._id}}>{ref.name}</Link>
+                <Link to={`/contacts/${ref._id}`} key={idx} state={{contactId: ref._id}}>
+                  {ref.image ? (<img className="contact-preview-img" src={`${ref.image}`} alt="contact profile"/>) : (<p className="tag contact-tag">{ref.name}</p>)}</Link>
               ))
             ) : ""
           }
@@ -105,9 +106,9 @@ const ViewApplication = ({ application, setApplication }) => {
             {
             application.contacts ? (
               application.contacts.map((contact, idx) => (
-                <Link to={`/contacts/${contact._id}`} className="tag" key={idx} state={{contactId: contact._id}}>{contact.name}</Link>
+                <Link to={`/contacts/${contact._id}`} className="tag contact-tag" key={idx} state={{contactId: contact._id}}>{contact.name}</Link>
               ))
-            ) : ""
+            ) : (<p>N/A</p>)
           }
           </div>
           </div>
