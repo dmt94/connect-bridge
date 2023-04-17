@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './ViewContact.css';
 
 const ViewContact = ({ contact }) => {
@@ -7,7 +7,8 @@ const ViewContact = ({ contact }) => {
       <div className="contact-wrapper">
       <div className="flex-r about-contact-div">
         <div>
-          <p>{contact.relationship}</p>
+      <p>{contact.starContact ? "⭐ Star Contact ⭐" : ""}</p>
+          <p className="tag">{contact.relationship}</p>
           <img src={contact.image} alt="" className="contact-profile-img" />
         </div>
         <div>
@@ -19,12 +20,11 @@ const ViewContact = ({ contact }) => {
           }
         </div>
       </div>
-      <h4>{contact.name}</h4>
+      <h1>{contact.name}</h1>
       <p>{contact.email}</p>
       <p>{contact.phoneNumber}</p>
       <p>{contact.about}</p>
       <p>{contact.response ? "Waiting for response" : ""}</p>
-      <p>{contact.starContact ? "Star Contact" : ""}</p>
       <div className="mutual-contact-grid">
       <p>Mutual Contacts:</p>
       {

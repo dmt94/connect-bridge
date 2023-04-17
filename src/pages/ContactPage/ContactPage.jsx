@@ -43,8 +43,10 @@ const ContactPage = () => {
       <button onClick={goBack} className="btn-light">Go Back</button>
       <ViewContact contact={contact} allContacts={allContacts} />
       
-      <Link to={`/contacts/${contact._id}/edit`} state={{contact, allContacts}}>Edit Contact</Link>
-      <button onClick={() => { deleteContact(contact._id) }}>Delete Contact</button>
+      <div className="flex-r bottom-card-row">
+        <Link className="edit-btn" to={`/contacts/${contact._id}/edit`} state={{contact, allContacts}}>Edit Contact</Link>
+        <button className="wide-delete-btn" onClick={() => { deleteContact(contact._id) }}>Delete Contact</button>
+      </div>
     </>
    );
 }

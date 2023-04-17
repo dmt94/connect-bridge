@@ -2,21 +2,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(240, 248, 255, 0.2);
   margin: 4vmin;
+}
+
+.main-div * {
+  font-size: 3vmin;
+}
+
+.main-div h1 {
+  font-size: 5vmin;
 }
 
 .contact-wrapper {
   align-self: center;
-  background-color: rgb(62, 59, 54);
+  background-color: rgb(54, 62, 84);
   padding: 3vmin;
+  border-radius: 10px;
+  min-width: 400px;
 }
 
 .mutual-contact-grid {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 255, 255, 0.19);
-
 }
 
 .mutual-contact {

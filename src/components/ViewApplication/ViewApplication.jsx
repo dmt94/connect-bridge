@@ -85,13 +85,13 @@ const ViewApplication = ({ application, setApplication }) => {
             <a className="tag url-tag" href={application.applicationUrl ? application.applicationUrl : "https://github.com/dmt94"}>Original Application Link</a>  
           </div>
           
-          <h2>{application.location ? "Location" : ""}</h2>
+          <h2 className="underline">{application.location ? "Location:" : ""}</h2>
           <p>{application.location}</p>
 
           <h3 className="secondary-emphasis">Role Description:</h3>
           <p>{application.description}</p>
           <div className="flex-c">
-            <p className="underline">References</p>
+            <p className="underline">References:</p>
             {
             application.reference ? (
               application.reference.map((ref, idx) => (
@@ -102,7 +102,7 @@ const ViewApplication = ({ application, setApplication }) => {
           }
           </div>
           <div className="flex-c">
-            <p className="underline">Contacts Associated with this application</p>
+            <p className="underline">Contacts Associated with this application:</p>
             <div className="flex-r max-300">
             {
             application.contacts ? (

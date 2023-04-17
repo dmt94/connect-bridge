@@ -1,5 +1,6 @@
 .contact-profile-img {
   width: 200px;
+  border-radius: 100px;
 }
 
 .about-contact-div {
@@ -19,3 +20,9 @@
   background-color: rgba(255, 255, 255, 0.226);
 }
 
+.bottom-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

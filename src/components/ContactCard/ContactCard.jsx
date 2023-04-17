@@ -5,6 +5,8 @@ import './ContactCard.css';
 function ContactCard({contact, deleteContact, allContacts}){
 
   return ( 
+    <div className='flex-c contact-card-outer'>
+    <button className='delete-btn' onClick={() => deleteContact(contact._id) }>Del</button>
     <div className="flex-r contact-card">
       <div className="contact-card-info">
         <h3>{contact.relationship}</h3>
@@ -23,8 +25,8 @@ function ContactCard({contact, deleteContact, allContacts}){
           <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
         </div>
         <Link to={`/contacts/${contact._id}`} className='more-links' state={{contactId: contact._id}}>View More</Link>
-        <button className='delete-btn' onClick={() => deleteContact(contact._id) }>Delete</button>
       </div>
+    </div>
     </div>
    );
 }

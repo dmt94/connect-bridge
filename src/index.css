@@ -5,10 +5,10 @@
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
   --tan-3: #eae0d7dc;
-  --dark-4: #161618f9;
+  --dark-4: #151518f3;
   --red: #fc2e1f9d;
   --text-light: #968c84;
-  --text-dark: #615954;
+  --text-dark: #2a2932;
 }
 
 *, *:before, *:after {
@@ -55,7 +55,7 @@ code {
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 400px));
-  max-width: 800px; /* adjust this value as per your requirement */
+  max-width: 800px;
 }
 
 .flex-ctr-ctr {
@@ -192,7 +192,6 @@ a {
   text-decoration: none;
   color: lightblue;
   margin: 2vmin;
-  
 }
 
 .btn-light {
@@ -284,17 +283,9 @@ label {
   font-size: 2.5vmin;
 }
 
-/* .tag:hover {
-  opacity: 0.7;
-} */
-
-a {
-  width: max-content;
-}
-
 .contact-tag {
   background-color: #ccea72;
-  width: max-content;
+  width: fit-content;
 }
 
 .contact-tag:hover {

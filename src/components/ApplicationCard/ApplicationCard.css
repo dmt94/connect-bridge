@@ -1,7 +1,56 @@
 .application-card {
   background-color: rgb(62, 59, 54);
+  padding: 3vmin;
+  border-radius: 10px;
+}
+
+.application-card * {
+  margin: 0;
+}
+
+.application-card .flex-r {
+  align-items: center;
+  justify-content: space-between;
 }
 
 .app-card-bottom-row {
-  justify-content: space-between;
+  display: flex;
+}
+
+.app-card-bottom-row * {
+  font-weight: 800;
+  padding: 2px;
+  margin-top: 3vmin;
+  font-size: 2vmin;
+}
+
+.application-card h1 {
+  font-size: 4vmin;
+}
+
+.application-card .tag {
+  padding: 5px;
+}
+.application-card .tag:hover {
+  padding: 5px;
+}
+
+.application-card .company-tag {
+  background-color: rgba(243, 243, 65, 0.957);
+}
+
+.application-card .app-card-top-row {
+  margin: 2vmin auto;
+}
+
+.application-card .company-tag:hover {
+  background-color: rgb(240, 233, 27);
+}
+
+.application-card a {
+  display: inline-block;
+}
+
+.app-card-bottom-row *:hover {
+  cursor: pointer;
 }
