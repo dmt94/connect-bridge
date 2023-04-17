@@ -52,7 +52,7 @@ const ApplicationForm = ({ applications }) => {
           <label htmlFor="date">Date:</label>
           <input type="date" name="date" onChange={handleChange}/>
 
-          <label htmlFor="role">*Role:</label>
+          <label className="required-text" htmlFor="role">*Position:</label>
           <input type="text" name="role" required onChange={handleChange} />
 
           <label htmlFor="type">Type:</label>
@@ -80,13 +80,13 @@ const ApplicationForm = ({ applications }) => {
           <label htmlFor="industry">Industry:</label>
           <input type="text" name="industry" onChange={handleChange} />
 
-          <label htmlFor="company">*Company:</label>
+          <label className="required-text" htmlFor="company">*Company:</label>
           <input type="text" name="company" required onChange={handleChange} />
 
           <label htmlFor="companyWebsite">Company Website:</label>
           <input type="text" name="companyWebsite" onChange={handleChange} />
 
-          <label htmlFor="description">*Description:</label>
+          <label htmlFor="description" className="required-text">*Description:</label>
           <textarea type="text" name="description" required onChange={handleChange} />
 
           <label htmlFor="salary">Salary Expectation:</label>
@@ -101,21 +101,19 @@ const ApplicationForm = ({ applications }) => {
           </select>
 
           <label htmlFor="priority">Is a priority application? </label>
-          <div className="flex-r">
+          <div className="flex-c">
             <div className="radio-div">
               <input type="radio" name="priority" value="yes" onChange={handleChange} />
-              <label htmlFor="yes">Yes</label>
+              <label className="radio-label" htmlFor="yes">Yes</label>
             </div>
 
             <div className="radio-div">
               <input type="radio" name="priority" value="no" onChange={handleChange} defaultChecked />
-              <label htmlFor="no">No</label>
+              <label className="radio-label" htmlFor="no">No</label>
             </div>
           </div>
 
-          <div className="flex-c select-contacts-div">
-            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options and de-select.</span>
-          </div>
+          <div className="flex-r contacts-mutuals-div">
           <div className="select-contacts-div">
               <label htmlFor="contacts">Contacts Associated with Application:</label>
               <select name="contacts" onChange={handleChange} multiple className="multiple-select">
@@ -124,20 +122,16 @@ const ApplicationForm = ({ applications }) => {
                   ))}
               </select>
           </div>
-
-          <div className="flex-c select-contacts-div">
-            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options and de-select.</span>
-          </div>
+          
           <div className="select-contacts-div">
               <label htmlFor="reference">Possible References:</label>
               <select name="reference" onChange={handleChange} multiple className="multiple-select">
                 {contacts.map((contact, idx) => (                  
                   <option key={idx} value={contact._id}>{contact.name}</option>
                 ))}
-
               </select>
           </div>
-          
+          </div>
         <button type="submit">Add Application</button>
       </form> 
     </div>

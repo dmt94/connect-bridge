@@ -68,11 +68,11 @@ const ContactForm = ({ contacts }) => {
     <div className="contact-form">
       <form action="" className="" onSubmit={ handleSubmit }>
         
-          <label htmlFor="name">*Name:</label>
+          <label className="required-text" htmlFor="name">*Name:</label>
           <input type="text" name="name" required onChange={handleChange} />
 
           <label htmlFor="image">Profile Photo:</label>
-          <span>Set contact's photo</span>
+          <h3>😊📸</h3>
           <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
           {
             toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
@@ -97,7 +97,7 @@ const ContactForm = ({ contacts }) => {
           <input type="text" name="url" onChange={ handleChange } />
 
           <label htmlFor="relationship">Relationship with Contact:</label>
-          <select name="relationship" onChange={ handleChange }>
+          <select className="tag" name="relationship" onChange={ handleChange }>
             <option value="Professional" defaultChecked>Professional</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
@@ -109,7 +109,6 @@ const ContactForm = ({ contacts }) => {
           <textarea type="text" name="about" onChange={ handleChange } />
 
           <div className="flex-c select-contacts-div">
-            <span>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</span>
           </div>
           <div className="select-contacts-div">
               <label htmlFor="mutuals">Mutual Contacts:</label>

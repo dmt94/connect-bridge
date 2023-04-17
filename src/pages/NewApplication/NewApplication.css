@@ -1,3 +1,7 @@
 .new-application-page h1 {
   text-align: center;
 }
+
+.new-application-page {
+  margin-bottom: 13vmin;
+}

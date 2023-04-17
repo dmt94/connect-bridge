@@ -1,13 +1,44 @@
 .application-form {
-  /* max-width: 800px; */
   display: flex;
   align-content: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.application-form button {
+  margin-bottom: 20vmin;
+}
+
+.application-form form {
+  align-self: left;
+  display: flex;
   flex-direction: column;
 }
-.application-form form {
-  width: 400px;
-  max-width: 800px;
-  align-self: center;
+
+.contacts-mutuals-div {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.multiple-select {
+  height: 15vmin;
+}
+
+.application-form form label {
+  font-size: 3vmin;
+  align-self: left;
+  justify-self: center;
+}
+.application-form form input,
+.application-form form select
+ {
+  font-size: 3vmin;
+  padding: 1vmin;
+  width: 490px;
+}
+
+.application-form form input {
+  width: 290px;
 }
 
 .flex-r {
@@ -20,10 +51,18 @@
 }
 
 .radio-div {
-  margin: 2vmin;
+  margin: 1vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .select-contacts-div select {
-  width: 100%;
-  margin-top: 2vmin;
+  width: 100px;
+  margin: 4vmin;
+}
+
+.radio-label {
+  margin: 4px auto;
 }

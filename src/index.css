@@ -35,6 +35,10 @@ code {
     monospace;
 }
 
+.required-text {
+  color: rgb(255, 85, 0);
+}
+
 #root {
   height: 100%;
 }
@@ -103,9 +107,10 @@ p.error-message {
 
 form {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
   gap: 1.25vmin;
   color: var(--text-light);
+  width: 300px;
 }
 
 label {

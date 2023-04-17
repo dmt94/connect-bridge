@@ -9,12 +9,31 @@
   align-self: center;
 }
 
+.contact-form form label {
+  font-size: 3vmin;
+}
+.contact-form form input {
+  font-size: 3vmin;
+}
+
+.contact-form form h3 {
+  font-size: 5vmin;
+}
+
 .img-btn {
   background-color: antiquewhite;
   color: black;
   padding: 2px;
 }
 
+.select-contacts-div .multiple-select {
+  width: 300px;
+}
+
 .img-btn:hover {
   opacity: 0.8;
+}
+
+.select-contacts-div {
+  margin-top: 3vmin;
 }
