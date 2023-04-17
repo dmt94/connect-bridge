@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import * as tasksAPI from '../../utilities/tasks-api';
 import './ViewApplication.css';
 import TaskCard from "../TaskCard/TaskCard";
@@ -90,11 +90,25 @@ const ViewApplication = ({ application, setApplication }) => {
 
           <h3 className="secondary-emphasis">Role Description:</h3>
           <p>{application.description}</p>
-          <div>
-            <p>References</p>
+          <div className="flex-c">
+            <p className="underline">References</p>
+            {
+            application.reference ? (
+              application.reference.map((ref, idx) => (
+                <Link to={`/contacts/${ref._id}`} className="tag" key={idx} state={{contactId: ref._id}}>{ref.name}</Link>
+              ))
+            ) : ""
+          }
           </div>
-          <div>
-            <p>Contacts Associated with this application</p>
+          <div className="flex-c">
+            <p className="underline">Contacts Associated with this application</p>
+            {
+            application.contacts ? (
+              application.contacts.map((contact, idx) => (
+                <Link to={`/contacts/${contact._id}`} className="tag" key={idx} state={{contactId: contact._id}}>{contact.name}</Link>
+              ))
+            ) : ""
+          }
           </div>
           </div>
         </div>

@@ -122,6 +122,10 @@ label {
   text-decoration: underline;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 input {
   padding: 1vmin;
   font-size: 2vmin;
