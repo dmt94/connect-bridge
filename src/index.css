@@ -110,7 +110,7 @@ form {
   grid-template-columns: 1fr 2fr;
   gap: 1.25vmin;
   color: var(--text-light);
-  width: 300px;
+  /* width: 300px; */
 }
 
 label {
