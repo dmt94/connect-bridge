@@ -96,7 +96,7 @@ const ViewApplication = ({ application, setApplication }) => {
             application.reference ? (
               application.reference.map((ref, idx) => (
                 <Link to={`/contacts/${ref._id}`} key={idx} state={{contactId: ref._id}}>
-                  {ref.image ? (<img className="contact-preview-img" src={`${ref.image}`} alt="contact profile"/>) : (<p className="tag contact-tag">{ref.name}</p>)}</Link>
+                  {ref.image ? (<div><img className="contact-preview-img" src={`${ref.image}`} alt="contact profile"/> <p>{ref.name}</p></div>) : (<p className="tag contact-tag">{ref.name}</p>)}</Link>
               ))
             ) : ""
           }

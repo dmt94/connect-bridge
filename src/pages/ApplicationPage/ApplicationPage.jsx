@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import * as applicationsAPI from '../../utilities/applications-api';
 import ViewApplication from "../../components/ViewApplication/ViewApplication";
+import EditApplication from "../../components/EditApplication/EditApplication";
 import './ApplicationPage.css';
 
 const ApplicationPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [application, setApplication] = useState([]);
+  const [toggleEditApplication, setToggleEditApplication] = useState(false);
  
   useEffect(function() {
     async function getApplication() {
@@ -17,8 +19,9 @@ const ApplicationPage = () => {
     getApplication();
   }, [id]);
 
-  const goBack = () => {
-    navigate(-1);
+  async function handleEditAppToggle(evt) {
+    evt.preventDefault();
+    setToggleEditApplication(!toggleEditApplication);
   }
 
   async function deleteApplication(id) {
@@ -28,11 +31,14 @@ const ApplicationPage = () => {
   return ( 
     <div className="application-page">
       <div className="flex-r">
-        <Link className="edit-btn" to={`/applications/${application._id}/edit`} state={{application}}>Edit Application</Link>
+        {/* <Link className="edit-btn" to={`/applications/${application._id}/edit`} state={{application}}>Edit Application</Link> */}
+        <button className="edit-btn" onClick={(evt) => handleEditAppToggle(evt)}>{toggleEditApplication ? "Cancel Edit" : "Edit Application"}</button>
         <button className="wide-delete-btn" onClick={() => { deleteApplication(application._id) }}>Delete Application</button>
       </div>
 
-      <ViewApplication application={application} setApplication={setApplication} />
+      {toggleEditApplication ? (<EditApplication application={application} setApplication={setApplication} />) : (<ViewApplication application={application} setApplication={setApplication} />)}
+
+      
     </div>
    );
 }
