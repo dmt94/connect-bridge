@@ -1,3 +1,23 @@
 .edit-app-wrap {
   max-width: 1000px;
 }
+
+.edit-priority-div {
+  width: 200px;
+}
+
+.input-company-tag {
+  color: rgb(0, 0, 0);
+  font-size: 3vmin;
+}
+
+.edit-priority-div .radio-div input {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.edit-priority-div .radio-div label,
+.edit-app-wrap label {
+  font-size: 3vmin;
+}

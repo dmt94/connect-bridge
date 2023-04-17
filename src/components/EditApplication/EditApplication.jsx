@@ -8,6 +8,16 @@ const EditApplication = ({ application }) => {
   const navigate = useNavigate();
   const [currentApplication, setCurrentApplication] = useState({application});
 
+
+  function handleChange(evt) {
+    if (evt.target.name === "reference" || evt.target.name === "contacts") {
+      let value = Array.from(evt.target.selectedOptions, option => option.value);
+      setCurrentApplication({...currentApplication, [evt.target.name]: value})
+    } else {
+      setCurrentApplication({...currentApplication, [evt.target.name]: evt.target.value });
+    }
+  }
+
   async function handleSubmit(evt) {
     evt.preventDefault();
 
@@ -17,21 +27,44 @@ const EditApplication = ({ application }) => {
     navigate(0);
   }
 
-  async function handleChange(evt) {
-    setCurrentApplication({...currentApplication, [evt.target.name]: evt.target.value});
-  }
-
   return ( 
   <div>
     <div className="main-div view-application-div">
       <div className="flex-c edit-app-wrap">
-        <h4>{application.date ? new Date(application.date).toLocaleDateString() : "No Application Date Provided"}</h4>
-          <h3 className="status-ip tag">{application.status}</h3>
-          <h3>{application.priority ? '⭐ Priority ⭐' : ''}</h3>
-          <div className="flex-r">
-            <a className="tag company-tag" href={application.companyWebsite ? application.companyWebsite : "https://github.com/dmt94"}>{application.company}</a>
-            <p className="tag">{application.industry ? application.industry: "Industry"}</p>
+        <input className='tag' type="date" name="date" onChange={handleChange}/>
+          
+        <label htmlFor="status">Status:</label>
+          <select className='tag' name="status" id="status" onChange={handleChange}>
+            <option value="Waiting" defaultChecked>Waiting</option>
+            <option value="Received Offer">Received Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Interviewing">Interviewing</option>
+          </select>
+
+          <label htmlFor="priority">Is a priority application? </label>
+          <div className="flex-r edit-priority-div">
+            <div className="radio-div">
+              <input type="radio" name="priority" value="yes" onChange={handleChange} />
+              <label htmlFor="yes">Yes</label>
+            </div>
+
+            <div className="radio-div">
+              <input type="radio" name="priority" value="no" onChange={handleChange} defaultChecked />
+              <label htmlFor="no">No</label>
+            </div>
           </div>
+
+          <div className="flex-r">
+            <label htmlFor="company">*Company:</label>
+          <input className='company-tag input-company-tag' type="text" name="company" placeholder={application.company} required onChange={handleChange} />
+
+          <label htmlFor="companyWebsite" placeholder={application.companyWebsite}>Company Website:</label>
+          <input className='tag' type="text" name="companyWebsite" onChange={handleChange} />
+
+          <label htmlFor="industry">Industry:</label>
+          <input className='tag' type="text" name="industry" onChange={handleChange} />
+          </div>
+          
           <h2 className="heading-emphasis">{application.role}</h2>
           <div className="flex-r">
             <h4 className="tag">{application.type}</h4>
