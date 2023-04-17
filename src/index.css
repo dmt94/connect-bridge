@@ -139,13 +139,13 @@ input {
 .text-input {
   background-color: rgb(25, 24, 24);
   color: white;
-  font-size: 4vmin;
+  font-size: 3vmin;
 }
 
 .textarea-input {
   background-color: #3f3c3b;
   color: white;
-  font-size: 4vmin;
+  font-size: 2.3vmin;
   font-family: 'Nunito Sans', sans-serif;
 }
 

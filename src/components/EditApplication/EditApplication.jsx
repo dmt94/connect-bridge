@@ -4,13 +4,63 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './EditApplication.css';
 
-const EditApplication = ({ application }) => {
+const EditApplication = ({ application, setApplication }) => {
 
   const navigate = useNavigate();
-  const [currentApplication, setCurrentApplication] = useState({application});
+  // const [currentApplication, setCurrentApplication] = useState({
+  //   date: application.date,
+  //   type: application.type,
+  //   applicationUrl: application.applicationUrl,
+  //   role: application.role,
+  //   evironment: application.environment,
+  //   location: application.location,
+  //   company: application.company,
+  //   industry: application.industry,
+  //   companyWebsite: application.companyWebsite,
+  //   description: application.description,
+  //   salary: application.salary,
+  //   status: application.status,
+  //   priority: application.priority,
+  //   reference: application.reference,
+  //   contacts: application.contacts,
+  //   task: application.task,
+  // });
+  // const [contacts, setContacts] = useState([]);
+
+  // useEffect(function() {
+  //   async function getContacts() {
+  //     const contactsReceived = await contactsAPI.getAllContacts();
+  //     setContacts(contactsReceived);
+  //   }
+  //   getContacts();
+  // }, []);
+
+  // async function handleChange(evt) {
+  //   evt.preventDefault();
+  //   if (evt.target.name === "reference" || evt.target.name === "contacts") {
+  //     let value = Array.from(evt.target.selectedOptions, option => option.value);
+  //     setCurrentApplication({...currentApplication, [evt.target.name]: value})
+  //   } else {
+  //     setCurrentApplication({...currentApplication, [evt.target.name]: evt.target.value });
+  //   }
+  // }
+
+  // async function handleSubmit(evt) {
+  //   evt.preventDefault();
+
+  //   console.log(currentApplication);
+
+  //   const updatedApplication = await applicationsAPI.updateApplication(application._id, currentApplication);
+
+  //   setCurrentApplication(updatedApplication);
+  //   setApplication(updatedApplication);
+  //   navigate(0);
+  // }
+
+  const [currentApplication, setCurrentApplication] = useState(application);
   const [contacts, setContacts] = useState([]);
 
-  useEffect(function() {
+  useEffect(() => {
     async function getContacts() {
       const contactsReceived = await contactsAPI.getAllContacts();
       setContacts(contactsReceived);
@@ -18,29 +68,33 @@ const EditApplication = ({ application }) => {
     getContacts();
   }, []);
 
+  const handleChange = (evt) => {
+    evt.preventDefault();
 
-  function handleChange(evt) {
-    if (evt.target.name === "reference" || evt.target.name === "contacts") {
-      let value = Array.from(evt.target.selectedOptions, option => option.value);
-      setCurrentApplication({...currentApplication, [evt.target.name]: value})
-    } else {
-      setCurrentApplication({...currentApplication, [evt.target.name]: evt.target.value });
-    }
-  }
+    const { name, value } = evt.target;
 
-  async function handleSubmit(evt) {
+    setCurrentApplication((prevApplication) => {
+      if (name === "reference" || name === "contacts") {
+        return { ...prevApplication, [name]: Array.from(evt.target.selectedOptions, (option) => option.value) };
+      }
+      return { ...prevApplication, [name]: value };
+    });
+  };
+
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
 
     const updatedApplication = await applicationsAPI.updateApplication(application._id, currentApplication);
 
     setCurrentApplication(updatedApplication);
+    setApplication(updatedApplication);
     navigate(0);
-  }
+  };
 
   return ( 
   <div>
     <div className="main-div view-application-div">
-        <form action={handleSubmit}>
+        <form action="" onSubmit={handleSubmit}>
       <div className="flex-c edit-app-wrap">
         <input className='tag' type="date" name="date" onChange={handleChange}/>
           
@@ -99,8 +153,6 @@ const EditApplication = ({ application }) => {
 
           <label htmlFor="salary">Salary Expectation:</label>
           <input className='tag salary-tag' type="text" name="salary" onChange={handleChange} placeholder={application.salary ? application.salary : '$'}/>
-
-
           </div>
 
          <label htmlFor="applicationUrl">Application URL:</label>
