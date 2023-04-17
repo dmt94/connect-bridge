@@ -30,6 +30,10 @@ body {
   text-transform: capitalize;
 }
 
+textarea {
+  white-space: pre-wrap;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
