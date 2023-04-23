@@ -2,13 +2,23 @@
   max-width: 1000px;
 }
 
-.edit-priority-div {
-  width: 200px;
+.edit-app-div {
+  display: flex;
+  flex-direction: row;
 }
 
-.input-company-tag {
-  color: rgb(0, 0, 0);
-  font-size: 3vmin;
+.edit-app-div-main h2 {
+  background-color: rgb(176, 169, 254);
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-bottom: 2vmin;
+}
+
+.edit-priority-div {
+  width: 200px;
 }
 
 .edit-priority-div .radio-div input {
@@ -19,7 +29,7 @@
 
 .edit-priority-div .radio-div label,
 .edit-app-wrap label {
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 
 .view-application-div form {
@@ -32,7 +42,7 @@
 .view-application-div form button {
   background-color: rgb(172, 255, 127);
   color: rgb(0, 0, 0);
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 
 .view-application-div form button:hover {

@@ -1,39 +1,24 @@
 .contact-form {
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-}
-.contact-form form {
-  width: 500px;
-  max-width: 900px;
-  align-self: center;
+  max-width: 800px;
 }
 
-.contact-form form label {
-  font-size: 3vmin;
-}
-.contact-form form input {
-  font-size: 3vmin;
-}
-
-.contact-form form h3 {
-  font-size: 5vmin;
+.inner-contact-form {
+  padding: 3vmin;
 }
 
 .img-btn {
-  background-color: antiquewhite;
-  color: black;
-  padding: 2px;
+  padding: 10px;
 }
 
-.select-contacts-div .multiple-select {
-  width: 300px;
+.profile-photo-div {
+  padding: 1vmin;
 }
 
-.img-btn:hover {
-  opacity: 0.8;
+.profile-photo-div button {
+  margin-right: 1vmin;
 }
 
-.select-contacts-div {
-  margin-top: 3vmin;
+.inner-contact-form input {
+  padding: 1vmin;
+  width: 80%;
 }

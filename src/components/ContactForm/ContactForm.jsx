@@ -66,17 +66,19 @@ const ContactForm = ({ contacts }) => {
   }
   return ( 
     <div className="contact-form">
-      <form action="" className="" onSubmit={ handleSubmit }>
+      <form action="" className="flex-col flex-ctr-ctr inner-contact-form" onSubmit={ handleSubmit }>
         
           <label className="required-text" htmlFor="name">*Name:</label>
           <input type="text" name="name" required onChange={handleChange} />
 
-          <label htmlFor="image">Profile Photo:</label>
-          <h3>😊📸</h3>
+          <label htmlFor="image">Profile Photo</label>
+          
+          <div className="flex-ctr-ctr flex-r profile-photo-div">
           <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
           {
             toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input type="file" name="image" onChange={ handleChange } />)
           }
+          </div>
         
           <label htmlFor="company">Organization:</label>
           <input type="text" name="company" onChange={ handleChange } />
