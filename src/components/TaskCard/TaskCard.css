@@ -5,15 +5,15 @@
 
 .task-card {
   max-width: 400px;
-  background-color: rgba(0, 0, 0, 0.429);
+  background-color: rgba(218, 209, 209, 0.555);
   border-radius: 10px;
-  padding: 1vmin;
+  padding: 3vmin;
   height: fit-content;
-  box-shadow: rgba(0, 0, 0, 0.342) 0px 4px 12px; 
 }
 
 .task-card h2 {
-  font-size: 18px;
+  font-size: 30px;
+  margin-top: 3vmin;
 }
 
 .task-card button {
@@ -31,7 +31,7 @@
 }
 
 .task-card:hover {
-  background-color: black;
+  background-color: rgba(218, 209, 209, 0.289);
   transition: 1s ease-in-out;
 }
 

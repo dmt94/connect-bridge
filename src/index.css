@@ -20,7 +20,7 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(90deg, #151a47, #141445);
+  background: linear-gradient(90deg, #151a47, #0d0d95);
   padding: 2vmin;
   display: flex;
   flex-direction: column;
@@ -260,17 +260,15 @@ label {
 
 .edit-btn {
   font-size: 3vmin;
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(95, 104, 230);
   font-weight: 700;
-  color: rgba(234, 234, 134, 0.745);
-  padding: 10px 8px;
+  color: rgba(241, 241, 217, 0.944);
+  padding: 1vmin;
   border-radius: 13px;
-  box-shadow: rgba(0, 0, 0, 0.857) 1.95px 1.95px 2.6px;
 }
 
 .edit-btn:hover {
-  background-color: rgb(234, 234, 134);
-  color: black;
+  background-color: rgb(49, 55, 161);
   cursor: pointer;
 }
 
@@ -290,7 +288,7 @@ label {
 }
 
 .contact-tag {
-  background-color: #ccea72;
+  background-color: #c9ea64;
   width: fit-content;
 }
 
@@ -315,11 +313,13 @@ label {
 }
 
 .url-tag {
-  background-color: rgb(147, 196, 240);
+  background-color: rgb(103, 142, 249);
+  color: white;
 }
 
 .url-tag:hover {
-  background-color: rgb(118, 183, 235);
+  background-color: rgb(44, 87, 216);
+  color: white;
 }
 
 .date-tag {
@@ -327,11 +327,12 @@ label {
 }
 
 .company-tag {
-  background-color: yellow;
+  background-color: rgb(66, 105, 247);
+  color: white;
 }
 
 .company-tag:hover {
-  background-color: rgba(255, 255, 0, 0.593);
+  background-color: rgba(58, 108, 255, 0.818);
 }
 
 .status-complete {

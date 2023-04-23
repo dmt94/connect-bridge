@@ -11,8 +11,8 @@ const TaskCard = ({task, deleteTask, crossTask, setApplication}) => {
   }
 
   return ( 
-    <div className="flex-c task-card">
-      <button className="delete-btn" onClick={() => {deleteTask(task._id)}}>X</button>
+    <div className="task-card">
+      <button className="wide-delete-btn" onClick={() => {deleteTask(task._id)}}>Del</button>
       {editFormToggle ? (<EditTaskForm task={task} setApplication={setApplication} />) : 
         ( 
         <div>

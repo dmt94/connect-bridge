@@ -31,6 +31,7 @@ const ApplicationCard = ({application, deleteApplication, contacts}) => {
         <Link className='' to={`/applications/${application._id}`}>View Application</Link>
         <a href={application.companyWebsite ? application.companyWebsite : ""} className=''>{application.company}</a>
       </div>
+      
     </div>
    );
 }

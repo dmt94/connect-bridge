@@ -34,3 +34,12 @@
   font-size: 3vmin;
   white-space: pre-wrap;
 }
+
+.task-form-div input, .task-form-div select {
+  padding: 2vmin;
+  color: white;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

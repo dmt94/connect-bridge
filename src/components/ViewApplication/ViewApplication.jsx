@@ -130,9 +130,9 @@ const ViewApplication = ({ application, setApplication }) => {
             ) : "" }
           </div>
         {toggle ? (
-          <form action="" className="flex-c" onSubmit={ handleSubmit }>
+          <form action="" className="" onSubmit={ handleSubmit }>
             
-              <div className="flex-c">
+            <div className="flex-ctr-ctr flex-col task-form-div">
               <p>Add New Task</p>
               <input name="name" type="text" placeholder="Task name" onChange={handleChange}/>
               <input type="datetime-local" name="date" id="" defaultValue={new Date()} onChange={handleChange}/>
@@ -143,7 +143,7 @@ const ViewApplication = ({ application, setApplication }) => {
                 <option value="Complete">Complete</option>
               </select>
               <button>Add</button>
-              </div>      
+            </div>      
          </form>
         ) : ""
       }
