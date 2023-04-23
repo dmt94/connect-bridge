@@ -32,4 +32,5 @@
 
 .left-div p {
   font-size: 3vmin;
+  white-space: pre-wrap;
 }

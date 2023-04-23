@@ -20,9 +20,8 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--dark-4);
+  background: linear-gradient(90deg, #151a47, #141445);
   padding: 2vmin;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,7 +38,7 @@ code {
 }
 
 .required-text {
-  color: rgb(255, 85, 0);
+  color: rgb(251, 246, 117);
 }
 
 #root {
@@ -96,12 +95,34 @@ code {
   font-size: 2vmin;
 }
 
-/* .form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-} */
+form {
+  background: rgba(233, 224, 242, 0.35);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 12.5px );
+-webkit-backdrop-filter: blur( 12.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  max-height: fit-content;
+  margin-bottom: 40px;
+}
+
+input, textarea, select {
+  background-color: rgba(0, 0, 0, 0.652);
+  color: white;
+  border-radius: 20px;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+textarea {
+  padding: 2vmin;
+  font-size: 20px;
+  width: 300px;
+  height: 150px;
+  white-space: pre-wrap;
+}
 
 .auth-form {
   padding: 5vmin;
@@ -129,14 +150,23 @@ code {
   text-decoration: underline;
 }
 
+button {
+  padding: 2vmin;
+  border: none;
+  background-color: #b8c4ec;
+  border-radius: 20px;
+  font-size: 2vmin;
+  color: rgb(31, 28, 28);
+}
 
 button:hover {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: rgba(255, 255, 255, 0.225);
 }
 
 button[type="submit"] {
@@ -161,6 +191,8 @@ a {
 
 label {
   color: white;
+  font-weight: 700;
+  margin-bottom: 1vmin;
 }
 
 .max-300 {

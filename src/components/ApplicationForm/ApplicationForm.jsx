@@ -49,6 +49,7 @@ const ApplicationForm = ({ applications }) => {
   return ( 
     <div className="application-form">
       <form action="" className="" onSubmit={ handleSubmit }>
+          <h2>Add New Application</h2>
           <label htmlFor="date">Date:</label>
           <input type="date" name="date" onChange={handleChange}/>
 
@@ -101,7 +102,7 @@ const ApplicationForm = ({ applications }) => {
           </select>
 
           <label htmlFor="priority">Is a priority application? </label>
-          <div className="flex-c">
+          <div className="flex-r">
             <div className="radio-div">
               <input type="radio" name="priority" value="yes" onChange={handleChange} />
               <label className="radio-label" htmlFor="yes">Yes</label>
