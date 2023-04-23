@@ -96,7 +96,7 @@ code {
 }
 
 form {
-  background: rgba(233, 224, 242, 0.35);
+  background: rgba(233, 224, 242, 0.077);
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 12.5px );
 -webkit-backdrop-filter: blur( 12.5px );
@@ -260,9 +260,9 @@ label {
 
 .edit-btn {
   font-size: 3vmin;
-  background-color: rgb(95, 104, 230);
+  background-color: rgb(154, 161, 255);
   font-weight: 700;
-  color: rgba(241, 241, 217, 0.944);
+  color: rgba(24, 24, 24, 0.944);
   padding: 1vmin;
   border-radius: 13px;
 }
@@ -270,6 +270,7 @@ label {
 .edit-btn:hover {
   background-color: rgb(49, 55, 161);
   cursor: pointer;
+  color: white;
 }
 
 /* tags */
