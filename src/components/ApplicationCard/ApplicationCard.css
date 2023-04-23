@@ -5,6 +5,19 @@
   min-width: 330px;
 }
 
+.application-card a {
+  background-color: black;
+  padding: 6px;
+  color: white;
+  border-radius: 30px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.application-card a:hover {
+  color: rgb(240, 226, 73);
+}
+
 .application-card * {
   margin: 0;
   color: black;
@@ -17,11 +30,16 @@
 
 .app-card-bottom-row {
   display: flex;
+  margin-top: 2vmin;
 }
 
 .app-card-bottom-row * {
   font-weight: 800;
   padding: 2px;
-  margin-top: 3vmin;
+  margin: 1vmin;
   font-size: 2vmin;
+}
+
+.app-card-top-row {
+  margin-bottom: 2vmin;
 }
