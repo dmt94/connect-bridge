@@ -27,7 +27,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   color: white;
-  text-transform: capitalize;
 }
 
 textarea {
@@ -97,12 +96,12 @@ code {
   font-size: 2vmin;
 }
 
-.form-container {
+/* .form-container {
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
-}
+} */
 
 .auth-form {
   padding: 5vmin;
@@ -118,25 +117,6 @@ code {
   font-size: 3vmin;
 }
 
-p.error-message {
-  color: var(--orange);
-  text-align: center;
-}
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 1.25vmin;
-  color: var(--text-light);
-  /* width: 300px; */
-}
-
-label {
-  font-size: 2vmin;
-  display: flex;
-  align-items: center;
-}
-
 .heading-emphasis {
   font-size: 5vmin;
 }
@@ -149,60 +129,9 @@ label {
   text-decoration: underline;
 }
 
-input {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
-  outline: none;
-}
-
-.text-input {
-  background-color: rgb(25, 24, 24);
-  color: white;
-  font-size: 3vmin;
-}
-
-.textarea-input {
-  background-color: #3f3c3b;
-  color: white;
-  font-size: 2.3vmin;
-  font-family: 'Nunito Sans', sans-serif;
-}
-
-input:focus {
-  border-color: var(--orange);
-}
-
-button, a.button {
-  margin: 1vmin;
-  color: var(--white);
-  background-color: rgba(174, 150, 150, 0.491);
-  font-size: 3vmin;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  border-radius: .5vmin;
-  outline: none;
-  cursor: pointer;
-  padding: 1vmin;
-}
 
 button:hover {
   opacity: 0.7;
-}
-
-button.btn-sm {
-  font-size: 1.5vmin;
-  padding: .6vmin .8vmin;
-}
-
-button.btn-xs {
-  font-size: 1vmin;
-  padding: .4vmin .5vmin;
 }
 
 button:disabled, form:invalid button[type="submit"] {

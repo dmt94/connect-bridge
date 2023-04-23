@@ -18,14 +18,15 @@ function ContactCard({contact, deleteContact, allContacts}){
         <div>
           <span>{contact.mutuals.length} mutuals</span>
         </div>
-
       </div>
+
       <div className="flex-c contact-card-rightc">
         <div className="contact-img-canvas">
           <img className="contact-img" src={`${contact.image}`} alt="represent contact" />
         </div>
         <Link to={`/contacts/${contact._id}`} className='more-links' state={{contactId: contact._id}}>View More</Link>
       </div>
+      
     </div>
     </div>
    );
