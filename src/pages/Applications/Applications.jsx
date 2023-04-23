@@ -37,7 +37,7 @@ export default function Applications() {
   return (
     <div className='application-div'>
       <h1>All Applications</h1>
-      <Link to='/applications/new' className='' state={ contacts }>Add New Application</Link>
+      <Link to='/applications/new' className='add-new-form-btn' state={ contacts }>Add New Application</Link>
       <div className='contact-grid'>
         {
           applications.map((application, idx) => (

@@ -6,14 +6,14 @@ const ApplicationCard = ({application, deleteApplication, contacts}) => {
     <div className="application-card">
         <h3>{application.priority ? "⭐ Priority " : ""}</h3>
       <div className="flex-r app-card-top-row">
-        <h2 className='tag'>{application.status}</h2>
+        <h2 className=''>{application.status}</h2>
         <button className='wide-delete-btn' onClick={() => {deleteApplication(application._id)}}>Delete</button>
       </div>
       <h1>{application.role}</h1>
 
       <div className="flex-r app-card-bottom-row">
-        <Link className='tag' to={`/applications/${application._id}`}>View Application</Link>
-        <a href={application.companyWebsite ? application.companyWebsite : ""} className='company-tag tag'>{application.company}</a>
+        <Link className='' to={`/applications/${application._id}`}>View Application</Link>
+        <a href={application.companyWebsite ? application.companyWebsite : ""} className=''>{application.company}</a>
       </div>
     </div>
    );

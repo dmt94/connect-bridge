@@ -26,7 +26,7 @@ export default function Contacts() {
   return (
     <div className='contacts-div'>
       <h1>Contacts</h1>
-      <Link to='/contacts/new' className='' state={ contacts } >Add New Contact</Link>
+      <Link to='/contacts/new' className='add-new-form-btn' state={ contacts } >Add New Contact</Link>
       <div className='contact-grid'>
         {
           contacts.map((contact, idx) => (
