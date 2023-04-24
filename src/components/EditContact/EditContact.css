@@ -9,11 +9,25 @@
   max-width: 400px;
 }
 
+.main-edit-contact {
+  max-width: 1000px;
+}
+
 .mutual-contact-edit p {
   margin: 2vmin;
   background-color: aliceblue;
   padding: 2vmin;
   color: black;
+}
+
+.edit-image-area {
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.edit-contact-bottom-div input {
+  padding: 1vmin;
 }
 
 .mutuals-select {

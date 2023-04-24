@@ -43,17 +43,20 @@
 
 .contact-wrapper {
   align-self: center;
-  background-color: rgba(33, 34, 37, 0.373);
+  background-color: rgba(30, 31, 32, 0.334);
   border-radius: 10px;
   width: 70%;
   max-width: 800px;
-  border: 1px solid rgb(56, 56, 67);
-  box-shadow: rgba(63, 63, 79, 0.686) 0px 7px 29px 0px;
+  border: 1px solid rgb(233, 229, 169);
 }
 
 .contact-top {
   justify-content: space-between;
   margin: 3vmin;
+}
+
+.contact-about {
+  min-width: 80%;
 }
 
 .contact-main-info {
@@ -68,14 +71,15 @@
 .mutual-contact-grid {
   display: flex;
   flex-direction: column;
-}
-
-.mutual-contact {
-  display: flex;
+  width: 100%;
   align-items: center;
-  max-width: fit-content;
-  padding: 1vmin;
-  border-radius: 10px;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 5vmin;
+  gap: 1vmin;
 }
 
 .mutual-contact * {

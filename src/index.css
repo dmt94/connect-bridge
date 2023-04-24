@@ -57,6 +57,11 @@ code {
   font-size: smaller;
 }
 
+hr {
+  width: 80%;
+  margin: 3vmin;
+}
+
 /* grid */
 .grid-3 {
   display: grid;
@@ -289,6 +294,10 @@ label {
   font-size: 2.5vmin;
 }
 
+.relationship-tag {
+  background-color: #f2f2fb;
+}
+
 .star-img {
   width: 50px;
   height: 50px;
@@ -334,8 +343,9 @@ label {
 }
 
 .url-tag {
-  background-color: rgb(103, 142, 249);
+  background-color: rgb(43, 45, 50);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.402);
 }
 
 .url-tag:hover {

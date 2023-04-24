@@ -8,3 +8,12 @@
   background-color: rgb(132, 171, 205);
   color: white;
 }
+
+.login-form {
+  background-color: rgba(240, 248, 255, 0);
+  border: none;
+}
+
+.login-form input {
+  padding: 1vmin;
+}

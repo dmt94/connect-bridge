@@ -92,7 +92,7 @@ const EditContact = () => {
   }
 
   return ( 
-    <div className="main-contact-div">
+    <div className="main-contact-div main-edit-contact">
       <button className='wide-delete' onClick={goBack}>Go Back</button>
       {toggleViewEdit ? (
         <>
@@ -102,13 +102,10 @@ const EditContact = () => {
         </>
         ) : 
       <form action="" className='edit-form' onSubmit={ handleSubmit }>
-      <div className="contact-wrapper">
-      <div className="flex-r about-contact-div">
-        <div className="flex-c">
+        <div className="flex-ctr-ctr flex-col">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" placeholder={contact.name} onChange={ handleChange } />
-          <div className='
-          flex-r'>
+
           <label htmlFor="relationship">Relationship with Contact:</label>
           <select className='tag' name="relationship" onChange={ handleChange }>
             <option value="Professional" defaultChecked>Professional</option>
@@ -117,35 +114,40 @@ const EditContact = () => {
             <option value="Close Friend">Close Friend</option>
             <option value="Family">Family</option>
           </select>
+          
+          <div className='flex-r edit-image-area'>
+            <div className='flex-c'>
+            <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
+            {
+              toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input className='file-input' type="file" name="image" onChange={ handleChange } />)
+            }
+            </div>
+            <img src={imagePreview} alt="" className="contact-profile-img" />
           </div>
-          <button className="img-btn" onClick={ handleContactImageButton }>{toggle ? "Upload image" : "Provide URL link"}</button>
-          {
-            toggle ? (<input type="text" placeholder="Provide Image URL" name="image" onChange={ handleChange } />) : (<input className='file-input' type="file" name="image" onChange={ handleChange } />)
-          }
-          <img src={imagePreview} alt="" className="contact-profile-img" />
-          <textarea className='tag text-area' name="about" onChange={ handleChange } cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>
-        </div>
-        <div>
+          <textarea className='tag text-area' name="about" onChange={ handleChange } cols="30" rows="10" placeholder={contact.about ? contact.about : `About ${contact.name}`}></textarea>            
+        </div>  
+
+        <div className='flex-col flex-ctr-ctr edit-contact-bottom-div'>
           <label htmlFor="url">Website</label>
           <input type="text" onChange={ handleChange } name="url" placeholder={contact.url ? contact.url : "Website"} />
           <label htmlFor="linkedin">Linkedin</label>
           <input type="text" onChange={ handleChange } name="linkedin" placeholder={contact.linkedin ? contact.linkedin : "Linkedin"} />
+        
+      
+      
+        <input type="text" onChange={ handleChange } placeholder={contact.email ? contact.email : "Email"} />
+        <input type="text" onChange={ handleChange } placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
+        
+        <div className="mutual-contact-edit">      
+         <label htmlFor="mutuals">Mutual Contacts:</label>
+          <select name="mutuals" onChange={ handleChange } multiple className="multiple-select mutuals-select">
+            {allContacts.map((contact, idx) => (                
+              <option key={idx} value={contact._id}>{contact.name}</option>
+            ))}
+          </select>
         </div>
-      </div>
-      
-      <input type="text" onChange={ handleChange } placeholder={contact.email ? contact.email : "Email"} />
-      <input type="text" onChange={ handleChange } placeholder={contact.phoneNumber ? contact.phoneNumber : "Phone Number"} />
-      
-      <div className="mutual-contact-edit">      
-      <label htmlFor="mutuals">Mutual Contacts:</label>
-        <select name="mutuals" onChange={ handleChange } multiple className="multiple-select mutuals-select">
-          {allContacts.map((contact, idx) => (                
-            <option key={idx} value={contact._id}>{contact.name}</option>
-          ))}
-        </select>
-      </div>
 
-      <label htmlFor="response">Waiting for response? </label>
+        <label htmlFor="response">Waiting for response? </label>
           <div className="flex-r">
             <div className="radio-div">
               <input type="radio" name="response" value={true} onChange={ handleChange } />
@@ -158,7 +160,7 @@ const EditContact = () => {
             </div>
           </div>
 
-          <label htmlFor="starContact">Star Contact? </label>
+        <label htmlFor="starContact">Star Contact? </label>
           <div className="flex-r">
             <div className="radio-div">
               <input type="radio" name="starContact" value={true} onChange={ handleChange } />
@@ -186,7 +188,7 @@ const EditContact = () => {
           <div className="flex-r">
           <button className="edit-btn" >Complete Edit</button>
           </div>
-      </div>
+          </div>
       </form>
       }
     </div> 

@@ -10,14 +10,15 @@
 .mutual-link p {
   text-decoration: none;
   color: rgb(31, 31, 31);
-  background-color: white;
   width: fit-content;
-  padding: 1vmin;
+  padding: 2vmin;
+  border: 1px solid rgb(250, 250, 193);
+  border-radius: 30px;
 }
 
 .mutual-link p:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.226);
+  color: rgb(19, 18, 18);
+  background-color: rgba(239, 230, 230, 0.763);
 }
 
 .bottom-card-row {

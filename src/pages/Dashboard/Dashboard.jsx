@@ -2,7 +2,7 @@ import './Dashboard.css';
 
 export default function Dashboard() {
   return (
-    <div className='flex-c dashboard-div'>
+    <div className='flex-col dashboard-div'>
       
       <h1>Welcome!</h1>
       <img src="https://cdn-icons-png.flaticon.com/512/7747/7747363.png" alt="" className='logo-img' />
