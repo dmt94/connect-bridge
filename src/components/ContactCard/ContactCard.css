@@ -25,6 +25,13 @@
   top: 20px;
   left: 310px;
   background-color: red;
+  display: flex;
+  align-items: center;
+}
+
+.contact-card-outer button:hover {
+  background-color: rgb(255, 136, 136);
+  opacity: 1;
 }
 
 .contact-card * {
@@ -35,14 +42,11 @@
 .contact-card-info {
   max-width: 50%;
   padding: 2vmin;
+  align-items: flex-start;
 }
 
 .contact-card-info div {
   margin: 2vmin;
-}
-
-.contact-card-info * {
-  text-align: left;
 }
 
 .contact-card-info h3 {
@@ -51,23 +55,25 @@
   padding: 1vmin;
   border-radius: 23px;
   text-align: center;
+  margin-bottom: 1vmin;
 }
 
 .contact-card-info h4 {
-  font-size: 20px;
-  margin: 2vmin 0 2vmin;
+  font-size: 17px;
+  margin: 1vmin 0 1vmin;
 }
 
 .contact-card-rightc {
   margin-top: 1vmin;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-card-rightc .more-links {
   padding: 0;
   background-color: rgba(245, 245, 220, 0);
   color: rgb(114, 102, 102);
-  text-align: center;
   text-decoration: underline;
 }
 

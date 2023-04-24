@@ -107,11 +107,12 @@ const ContactForm = ({ contacts }) => {
             <option value="Family">Family</option>
           </select>
 
+          <div className="flex-ctr-ctr flex-r">
+            <div className="flex-ctr-ctr flex-col">
           <label htmlFor="about">About:</label>
           <textarea type="text" name="about" onChange={ handleChange } />
-
-          <div className="flex-c select-contacts-div">
           </div>
+
           <div className="select-contacts-div">
               <label htmlFor="mutuals">Mutual Contacts:</label>
               <select name="mutuals" onChange={ handleChange } multiple className="multiple-select">
@@ -121,6 +122,7 @@ const ContactForm = ({ contacts }) => {
                 ))}
 
               </select>
+          </div>
           </div>
 
           <label htmlFor="response">Waiting for response? </label>

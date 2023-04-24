@@ -120,7 +120,7 @@ textarea {
   padding: 2vmin;
   font-size: 20px;
   width: 300px;
-  height: 150px;
+  /* height: 150px; */
   white-space: pre-wrap;
 }
 
@@ -289,8 +289,23 @@ label {
   font-size: 2.5vmin;
 }
 
+.star-img {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+}
+
+.important-tag {
+  background-color: #292822;
+  color: yellow;
+}
+
 .important {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(255, 231, 12, 0.834) 0px 30px 60px -30px;
+}
+
+.reference {
+  background-color: #94ec46;
 }
 
 .contact-tag {
@@ -299,7 +314,7 @@ label {
 }
 
 .waiting {
-  background-color: orange;
+  background-color: rgb(227, 122, 2);
 }
 
 .received-offer {

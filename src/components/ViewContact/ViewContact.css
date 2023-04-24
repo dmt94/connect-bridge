@@ -9,16 +9,60 @@
   font-size: 3vmin;
 }
 
+.about-contact-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-tag-area {
+  max-width: 100%;
+  display: flex;
+  justify-items: center; 
+  align-items: center; 
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-contact-div * {
+  margin: 1vmin;
+}
+
+.star-contact-view {
+  margin: 0;
+  text-align: center;
+  border-radius: 0;
+  background-color: rgb(211, 187, 9);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
 .main-div h1 {
   font-size: 5vmin;
 }
 
 .contact-wrapper {
   align-self: center;
-  background-color: rgb(54, 62, 84);
-  padding: 3vmin;
+  background-color: rgba(33, 34, 37, 0.373);
   border-radius: 10px;
-  min-width: 400px;
+  width: 70%;
+  max-width: 800px;
+  border: 1px solid rgb(56, 56, 67);
+  box-shadow: rgba(63, 63, 79, 0.686) 0px 7px 29px 0px;
+}
+
+.contact-top {
+  justify-content: space-between;
+  margin: 3vmin;
+}
+
+.contact-main-info {
+  text-align: center;
+  padding: 1vmin;
+}
+
+.contact-wrapper p {
+  color: rgb(250, 247, 247);
 }
 
 .mutual-contact-grid {

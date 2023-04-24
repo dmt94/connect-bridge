@@ -22,3 +22,10 @@
   padding: 1vmin;
   width: 80%;
 }
+
+.contact-form .select-contacts-div select {
+  margin: 0;
+  height: 100%;
+  width: 200px;
+  margin-left: 2vmin;
+}
