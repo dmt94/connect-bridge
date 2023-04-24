@@ -108,7 +108,7 @@ const EditContact = () => {
 
           <label htmlFor="relationship">Relationship with Contact:</label>
           <select className='tag' name="relationship" onChange={ handleChange }>
-            <option value="Professional" defaultChecked>Professional</option>
+            <option value="Professional" >Professional</option>
             <option value="Colleague">Colleague</option>
             <option value="Friend">Friend</option>
             <option value="Close Friend">Close Friend</option>
@@ -155,7 +155,7 @@ const EditContact = () => {
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="response" value={false} checked onChange={ handleChange } />
+              <input type="radio" name="response" value={false} onChange={ handleChange } />
               <label htmlFor="no">No</label>
             </div>
           </div>
@@ -168,7 +168,7 @@ const EditContact = () => {
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="starContact" value={false} checked onChange={ handleChange } />
+              <input type="radio" name="starContact" value={false} onChange={ handleChange } />
               <label htmlFor="no">No</label>
             </div>
           </div>
@@ -181,7 +181,7 @@ const EditContact = () => {
             </div>
 
             <div className="radio-div">
-              <input type="radio" name="reference" value={false} checked onChange={ handleChange } />
+              <input type="radio" name="reference" value={false} onChange={ handleChange } />
               <label htmlFor="no">No</label>
             </div>
           </div>
