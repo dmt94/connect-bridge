@@ -53,7 +53,7 @@ const EditApplication = ({ application, setApplication }) => {
           
         <label htmlFor="status">Status:</label>
           <select className='tag' name="status" id="status" onChange={handleChange}>
-            <option value="Waiting" defaultChecked>Waiting</option>
+            <option value="Waiting">Waiting</option>
             <option value="Received Offer">Received Offer</option>
             <option value="Rejected">Rejected</option>
             <option value="Interviewing">Interviewing</option>
@@ -88,7 +88,7 @@ const EditApplication = ({ application, setApplication }) => {
 
             <label htmlFor="type">Type:</label>
             <select className='tag' name="type" onChange={ handleChange }>
-              <option value="Full-Time" defaultChecked>Full-Time</option>
+              <option value="Full-Time">Full-Time</option>
               <option value="Part-time">Part-time</option>
               <option value="Internship">Internship</option>
               <option value="Apprenticeship">Apprenticeship</option>
@@ -97,7 +97,7 @@ const EditApplication = ({ application, setApplication }) => {
             
             <label htmlFor="environment">Environment:</label>
             <select className='tag' name="environment" onChange={handleChange}>
-              <option value="In-Office" defaultChecked>In-Office</option>
+              <option value="In-Office">In-Office</option>
               <option value="Remote">Remote</option>
               <option value="Hybrid">Hybrid</option>
             </select>

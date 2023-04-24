@@ -6,6 +6,8 @@ This is a full-stack application built with React, Express, and MongoDB that all
 ### Application Features
 ___
 
+- Focus on more meaningful network-based job applications
+
 ##### Track Job Application
 - Track Job Application with full CRUD implementation
 - Add tasks for each application in View Application page
