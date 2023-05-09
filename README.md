@@ -38,6 +38,13 @@ ___
 - MongoDB, Mongoose
 - React
 
+### Design Proccess
+___
+View my design proccess on Figma:
+
+<a href="https://www.figma.com/file/pSMVdB6n5PfRmChCpKTXsH/ConnectBridge?type=design&node-id=7%3A7&t=VCUBemMyfF5E23y1-1">Working Vision</a>
+
+
 ### Getting Started
 ___
 
